@@ -1,0 +1,38 @@
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <%= link_to '#' do %>
+          <h1 class="title mb-0"><%= full_title(yield(:title)) %></h1>
+        <% end %>
+        <h4 class="m-0  font-weight-light col-md-8 pl-0">The streamlined solution for medical records and appointment creation.</h4>
+      </div>
+      <div class="col-md-2">
+        <ul class="nav">
+          <li class="nav-item">
+              <%= link_to "Home", '#', {:class=>'nav-link'} %>
+          </li>
+          <li class="nav-item">
+              <%= link_to "Register", '#', {:class=>'nav-link'} %>
+          </li>
+          <li class="nav-item">
+              <%= link_to "Login", '#', {:class=>'nav-link'} %>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <ul class="nav">
+          <li class="nav-item">
+              <%= link_to "Contact Us", '#', {:class=>'nav-link'} %>
+          </li>
+          <li class="nav-item">
+              <%= link_to "About Us", '#', {:class=>'nav-link'} %>
+          </li>
+          <li class="nav-item">
+              <%= link_to "Investor Relations", '#', {:class=>'nav-link'} %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
