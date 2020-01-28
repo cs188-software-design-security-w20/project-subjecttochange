@@ -1,6 +1,11 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  #Devise
+    #Default environment for production - Action Mailer
+    config.action_mailer.default_url_options = { host: 'https://rocky-dawn-05751.herokuapp.com/' }
+
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
