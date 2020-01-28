@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :patients
+
+  devise_for :patients,  path: 'patients'
+  devise_for :practices, path: 'practices'
   get 'static_pages/about'
   get 'static_pages/home'
 
