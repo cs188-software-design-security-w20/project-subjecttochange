@@ -10,6 +10,7 @@
   </nav>
 
 </header>
+<%= render 'layouts/alert' %>
 <div class="section-signup mt-0">
   <div class="container mb-5">
     <div class="row row-grid justify-content-between align-items-center">
@@ -33,40 +34,43 @@
               <%= render "devise/shared/error_messages", resource: resource %>
 
               <div class="field">
-                <%= f.text_field :first_name, autofocus: true, autocomplete: "fname", class: 'form-control mb-2', placeholder: 'First Name' %>
+                <%= f.text_field :first_name, :required => true, autofocus: true, autocomplete: "fname", class: 'form-control mb-2', placeholder: 'First Name' %>
               </div>
               <div class="field">
                 <%= f.text_field :middle_initial, autofocus: true, class: 'form-control mb-2', placeholder: 'Middle Initial' %>
               </div>
               <div class="field">
-                <%= f.text_field :last_name, autofocus: true, autocomplete: "lname", class: 'form-control mb-2', placeholder: 'Last Name' %>
+                <%= f.text_field :last_name, :required => true, autofocus: true, autocomplete: "lname", class: 'form-control mb-2', placeholder: 'Last Name' %>
               </div>
               <div class="field">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control mb-2', placeholder: 'Email' %>
-              </div>
-
-              <div class="field">
-                <%= f.password_field :password, autocomplete: "new-password", class: 'form-control mb-2', placeholder: 'Password (' + @minimum_password_length.to_s + ' characters minimum)' %>
+                <%= f.email_field :email, :required => true, autofocus: true, autocomplete: "email", class: 'form-control mb-2', placeholder: 'Email' %>
               </div>
 
               <div class="field">
-                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control mb-2', placeholder: 'Password Confirmation' %>
+                <%= f.password_field :password, :required => true, autocomplete: "new-password", class: 'form-control mb-2', placeholder: 'Password (' + @minimum_password_length.to_s + ' characters minimum)' %>
+              </div>
+
+              <div class="field">
+                <%= f.password_field :password_confirmation, :required => true, autocomplete: "new-password", class: 'form-control mb-2', placeholder: 'Password Confirmation' %>
               </div>
 
               <div class="field">
                 <%= f.text_field :gender, autocomplete: "sex", class: 'form-control mb-2', placeholder: 'Gender' %>
               </div>
               <div class="field">
-                <%= f.text_field :phone_number, autocomplete: "tel", class: 'form-control mb-2', placeholder: 'Phone Number' %>
+                <%= f.date_field :birthdate, :required => true, autocomplete: "bday", class: 'form-control mb-2', placeholder: 'Birthdate (mm/dd/yyyy)' %>
               </div>
               <div class="field">
-                <%= f.text_field :city, autocomplete: "city", class: 'form-control mb-2', placeholder: 'City' %>
+                <%= f.text_field :phone_number, :required => true, autocomplete: "tel", class: 'form-control mb-2', placeholder: 'Phone Number' %>
               </div>
               <div class="field">
-                <%= f.text_field :state, autocomplete: "state", class: 'form-control mb-2', placeholder: 'State' %>
+                <%= f.text_field :city, :required => true, autocomplete: "city", class: 'form-control mb-2', placeholder: 'City' %>
               </div>
               <div class="field">
-                <%= f.text_field :zipcode, autocomplete: "zipcode", class: 'form-control mb-2', placeholder: 'Zipcode' %>
+                <%= f.text_field :state, :required => true, autocomplete: "state", class: 'form-control mb-2', placeholder: 'State' %>
+              </div>
+              <div class="field">
+                <%= f.text_field :zipcode, :required => true, autocomplete: "zipcode", class: 'form-control mb-2', placeholder: 'Zipcode' %>
               </div>
 
               <div class="actions">
