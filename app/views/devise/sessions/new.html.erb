@@ -16,7 +16,13 @@
       <div class="col-lg-6 text-center align-text-center p-1">
         <div class="card card-register p-2 mb-2">
           <div class="mt-4 justify-content-md-center">
-            <h4 class="mb-1 text-white text-center h2 font-weight-bold">Patient Sign In</h4>
+            <h4 class="mb-1 text-white text-center h2 font-weight-bold">
+              <% if current_page?(new_patient_session_path) %>
+                Patient Sign In
+              <% else %>
+                  Practice Sign In
+              <% end %>
+            </h4>
           </div>
           <div class="container">
               <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form mt-2 mb-1'}) do |f| %>
@@ -52,7 +58,13 @@
         <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
           <%= link_to "Locked out and didn't receive unlock instructions?", new_unlock_path(resource_name), class:'text-center' %><br />
         <% end %>
-          <p class="mt-0 pt-0">Not a user? Sign up <%= link_to "here",   new_patient_registration_path %>.</p>
+          <p class="mt-0 pt-0">Not a user? Sign up
+            <% if current_page?(new_patient_session_path) %>
+              <%= link_to "here",   new_patient_registration_path %>
+            <% else %>
+              <%= link_to "here",   new_practice_registration_path %>
+            <% end %>
+          .</p>
       </div>
 
     </div>

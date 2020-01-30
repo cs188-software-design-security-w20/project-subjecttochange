@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
 
-  devise_for :patients,  path: 'patients', controllers: { sessions: 'patients/sessions' }
-  devise_for :practices, path: 'practices', controllers: { sessions: 'practices/sessions' }
+  devise_for :patients,  path: 'patients', controllers: { sessions: 'patients/sessions', registrations: 'patients/registrations' }
+  devise_for :practices, path: 'practices', controllers: { sessions: 'practices/sessions', registrations: 'practices/registrations' }
   get 'static_pages/about'
   get 'static_pages/home'
 

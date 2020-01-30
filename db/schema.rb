@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_30_035828) do
+ActiveRecord::Schema.define(version: 2020_01_30_181727) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "patient_email"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2020_01_30_035828) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.datetime "birthdate"
     t.index ["email"], name: "index_practices_on_email", unique: true
     t.index ["reset_password_token"], name: "index_practices_on_reset_password_token", unique: true
   end

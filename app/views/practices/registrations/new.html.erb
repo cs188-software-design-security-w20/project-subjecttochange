@@ -1,0 +1,88 @@
+<header>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-transparent ">
+    <div class="container">
+      <div class="navbar-translate">
+        <%= link_to root_url, {:class => "navbar-brand", 'rel'=> "tooltip", 'title'=> "Medio", 'data-placement' => "Bottom"} do %>
+          <h2><span>Medio</span></h2>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+
+</header>
+<div class="section-signup mt-0">
+  <div class="container">
+    <div class="row row-grid justify-content-between align-items-center">
+      <div class="col-lg-6">
+        <h3 class="display-3 text-white">Your personal hassle-free
+          <span class="text-white">medical application.  </span>
+        </h3>
+        <p class="text-white mb-3">Keeping your medical history, appointments, and information organized is stressful. We're people just like you, frustrated with the decades old technology still present in the healthcare industry. So we've made <span class="font-weight-bold">Medio</span> for users who just want to make their personal medical logistics stress-free.</p>
+        <div class="btn-wrapper">
+          <p> Already a user? Login here.</p>
+          <%= link_to "User Login",   new_patient_session_path, {:class => "btn btn-info"} %>
+        </div>
+      </div>
+      <div class="col-lg-6 mb-lg-auto p-1">
+        <div class="card card-register p-2">
+          <div class="mt-4 justify-content-md-center">
+            <h4 class="mb-1 text-white text-center h2 font-weight-bold">Practice Registration</h4>
+          </div>
+          <div class="container">
+            <form class="form mt-2 mb-3" autocomplete="on">
+              <input type="text" class="form-control mb-2" placeholder="First Name*" name="fname" required>
+              <input type="text" class="form-control mb-2" placeholder="Middle Initial" name="middle_initial">
+              <input type="character" class="form-control mb-2" placeholder="Last Name" name="lname" required>
+              <input type="email" class="form-control mb-2" placeholder="Email" name="email" required>
+              <input type="text" class="form-control mb-2" placeholder="Password" required>
+              <input type="text" class="form-control mb-2" placeholder="Medical School">
+              <input type="text" class="form-control mb-2" placeholder="Gender (Male/Female/Other)" name="sex">
+              <input type="text" class="form-control mb-2" placeholder="Phone Number" name="tel" required>
+              <input type="text" class="form-control mb-2" placeholder="Street Address" name="address" required>
+              <input type="text" class="form-control mb-2" placeholder="City" name="city" required>
+              <input type="text" class="form-control mb-2" placeholder="State" name="state" required>
+              <input type="text" class="form-control mb-2" placeholder="Zipcode" name="zipcode" required>
+              <input type="text" class="form-control mb-2" placeholder="Birthdate" name="bday" required>
+
+
+
+
+
+            </form>
+
+          <p class= "col btn btn-info btn-round btn-lg text-center">Get Started</p>
+          <p class="text-center font-weight-light p-1">By submitting this form, you agree to our <%= link_to "terms of service", "#"%>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sig---n up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
