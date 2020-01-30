@@ -1,8 +1,26 @@
 <% provide(:title, "About Us") %>
 
 <div class="landing-page">
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-transparent ">
+      <div class="container">
+        <div class="navbar-translate">
+          <%= link_to root_url, {:class => "navbar-brand", 'rel'=> "tooltip", 'title'=> "Medio", 'data-placement' => "Bottom"} do %>
+            <h2><span>Medio</span></h2>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
+  </header>
     <div class="wrapper">
       <div class="page-header">
+        <%= image_tag("blob.png", :class=> 'path') %>
+        <%= image_tag("path2.png", :class=> 'path2') %>
+        <%= image_tag("triunghiuri.png", :class=> 'shapes triangle') %>
+        <%= image_tag("waves.png", :class=> 'shapes wave') %>
+        <%= image_tag("patrat.png", :class=> 'shapes squares') %>
+        <%= image_tag("cercuri.png", :class=> 'shapes circle') %>
         <div class="content-center">
           <div class="row row-grid justify-content-between align-items-center text-left">
             <div class="col-lg-6 col-md-6">
