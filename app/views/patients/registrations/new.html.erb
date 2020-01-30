@@ -11,7 +11,7 @@
 
 </header>
 <div class="section-signup mt-0">
-  <div class="container">
+  <div class="container mb-5">
     <div class="row row-grid justify-content-between align-items-center">
       <div class="col-lg-6">
         <h3 class="display-3 text-white">Your personal hassle-free
@@ -23,65 +23,63 @@
           <%= link_to "Patient Login",   new_patient_session_path, {:class => "btn btn-info"} %>
         </div>
       </div>
-      <div class="col-lg-6 mb-lg-auto p-1">
-        <div class="card card-register p-2">
+      <div class="col-lg-6 text-center align-text-center p-1">
+        <div class="card card-register p-2 mb-2">
           <div class="mt-4 justify-content-md-center">
             <h4 class="mb-1 text-white text-center h2 font-weight-bold">Patient Registration</h4>
           </div>
           <div class="container">
-            <form class="form mt-2 mb-3" autocomplete="on">
-              <input type="text" class="form-control mb-2" placeholder="First Name*" name="fname" required>
-              <input type="text" class="form-control mb-2" placeholder="Middle Initial" name="middle_initial">
-              <input type="character" class="form-control mb-2" placeholder="Last Name" name="lname" required>
-              <input type="email" class="form-control mb-2" placeholder="Email" name="email" required>
-              <input type="text" class="form-control mb-2" placeholder="Password" required>
-              <input type="text" class="form-control mb-2" placeholder="Gender (Male/Female/Other)" name="sex">
-              <input type="text" class="form-control mb-2" placeholder="Phone Number" name="tel" required>
-              <input type="text" class="form-control mb-2" placeholder="Street Address" name="address" required>
-              <input type="text" class="form-control mb-2" placeholder="City" name="city" required>
-              <input type="text" class="form-control mb-2" placeholder="State" name="state" required>
-              <input type="text" class="form-control mb-2" placeholder="Zipcode" name="zipcode" required>
-              <input type="text" class="form-control mb-2" placeholder="Birthdate" name="bday" required>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'form mt-2 mb-3'}) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
 
+              <div class="field">
+                <%= f.text_field :first_name, autofocus: true, autocomplete: "fname", class: 'form-control mb-2', placeholder: 'First Name' %>
+              </div>
+              <div class="field">
+                <%= f.text_field :middle_initial, autofocus: true, class: 'form-control mb-2', placeholder: 'Middle Initial' %>
+              </div>
+              <div class="field">
+                <%= f.text_field :last_name, autofocus: true, autocomplete: "lname", class: 'form-control mb-2', placeholder: 'Last Name' %>
+              </div>
+              <div class="field">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control mb-2', placeholder: 'Email' %>
+              </div>
 
+              <div class="field">
+                <%= f.password_field :password, autocomplete: "new-password", class: 'form-control mb-2', placeholder: 'Password (' + @minimum_password_length.to_s + ' characters minimum)' %>
+              </div>
 
+              <div class="field">
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control mb-2', placeholder: 'Password Confirmation' %>
+              </div>
 
+              <div class="field">
+                <%= f.text_field :gender, autocomplete: "sex", class: 'form-control mb-2', placeholder: 'Gender' %>
+              </div>
+              <div class="field">
+                <%= f.text_field :phone_number, autocomplete: "tel", class: 'form-control mb-2', placeholder: 'Phone Number' %>
+              </div>
+              <div class="field">
+                <%= f.text_field :city, autocomplete: "city", class: 'form-control mb-2', placeholder: 'City' %>
+              </div>
+              <div class="field">
+                <%= f.text_field :state, autocomplete: "state", class: 'form-control mb-2', placeholder: 'State' %>
+              </div>
+              <div class="field">
+                <%= f.text_field :zipcode, autocomplete: "zipcode", class: 'form-control mb-2', placeholder: 'Zipcode' %>
+              </div>
 
-            </form>
-
-          <p class= "col btn btn-info btn-round btn-lg text-center">Get Started</p>
-          <p class="text-center font-weight-light p-1">By submitting this form, you agree to our <%= link_to "terms of service", "#"%>.</p>
+              <div class="actions">
+                <%= f.submit "Get Started", class:'col btn btn-info btn-round btn-lg text-center mt-4' %>
+              </div>
+              <p class="text-center font-weight-light p-1">By submitting this form, you agree to our <%= link_to "terms of service", "#"%>.</p>
+            <% end %>
           </div>
         </div>
+        <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+          <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class:'text-center' %><br />
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sig---n up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
