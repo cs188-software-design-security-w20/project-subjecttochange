@@ -5,5 +5,5 @@ class Practice < ApplicationRecord
          :recoverable, :rememberable, :validatable, :timeoutable, :trackable, :lockable
 
   validates :first_name, :last_name, :email, :password, :med_school, :phone_number, :city, :state, :zipcode, presence: true
-  validates :email, uniqueness: true, if: -> { self.email.present? }
+  validates :email, uniqueness: true
 end
