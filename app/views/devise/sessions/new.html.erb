@@ -6,6 +6,8 @@
     <div class="row row-grid justify-content-center align-items-center">
       <div class="col-lg-6 text-center align-text-center p-1">
         <%= render 'layouts/alert' %>
+        <% if (patient_signed_in? or practice_signed_in?) %>
+        <% else %>
         <div class="card card-register p-2 mb-2">
           <div class="mt-4 justify-content-md-center">
             <h4 class="mb-1 text-white text-center h2 font-weight-bold">
@@ -18,6 +20,7 @@
               <% end %>
             </h4>
           </div>
+
           <div class="container">
               <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form mt-2 mb-1'}) do |f| %>
               <div class="field">
@@ -59,7 +62,7 @@
               <%= link_to "here.",   new_practice_registration_path %>
             <% end %></p>
       </div>
-
+      <% end %>
     </div>
   </div>
 </div>

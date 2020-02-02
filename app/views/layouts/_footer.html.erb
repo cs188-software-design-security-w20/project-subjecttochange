@@ -12,12 +12,18 @@
           <li class="nav-item">
               <%= link_to "Home", root_url, {:class=>'nav-link'} %>
           </li>
+          <% if (!patient_signed_in? and !practice_signed_in?) %>
           <li class="nav-item">
               <%= link_to "Patient Login", new_patient_session_path, {:class=>'nav-link'} %>
           </li>
           <li class="nav-item">
               <%= link_to "Practice Login", new_practice_session_path, {:class=>'nav-link'} %>
           </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to 'Log out', destroy_practice_session_path, method: :delete, class:"nav-link" %>
+          </li>
+          <% end %>
         </ul>
       </div>
       <div class="col-md-2">

@@ -7,7 +7,9 @@ class Practices::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   # def new
-  #   super
+  #   if (patient_signed_in? or practice_signed_in?)
+  #     redirect_to root_url
+  #   end
   # end
 
   # POST /resource/sign_in
