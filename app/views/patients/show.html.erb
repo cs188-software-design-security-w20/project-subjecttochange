@@ -1,1 +1,12 @@
-<h1><%= current_patient.first_name + " " + current_patient.last_name%></h1>
+<div class="row mt-5">
+  Names
+</div>
+<div class="row mt-5">
+    <ul>
+        <li>
+            <%= current_patient.first_name %>
+            <%= current_patient.last_name %>:
+            <%= current_patient.email %>
+        </li>
+    </ul>
+</div>

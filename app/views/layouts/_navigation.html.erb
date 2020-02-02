@@ -7,11 +7,14 @@
     </div>
     <div class="collapse navbar-collapse justify-content-end" id="navigation">
       <ul class="navbar-nav">
-        <li class="nav-item font-weight-bold">
-          Messages
-        </li>
-        <li class="nav-item font-weight-bold">
-          <%# <%= current_patient.first_name + '\'s Profile'  %> %>
+        <li class="nav-item font-weight-bold p-1">
+          <% if patient_signed_in? %>
+            <%= link_to current_patient.first_name + '\'s Profile', patients_path %>
+            <%= link_to 'Log out', destroy_patient_session_path, method: :delete %>
+          <% elsif practice_signed_in?%>
+          <%= link_to current_practice.first_name + '\'s Profile', practice_path %>
+            <%= link_to 'Log out', destroy_practice_session_path, method: :delete %>
+          <% end %>
         </li>
       </ul>
     </div>

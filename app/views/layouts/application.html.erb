@@ -14,28 +14,10 @@
   </head>
 
   <body>
-    <% if (controller.controller_name != "static_pages") \
-      and !current_page?(new_patient_session_path) \
-      and !current_page?(new_practice_session_path) \
-      and !current_page?(new_patient_registration_path) \
-      and !current_page?(new_practice_registration_path) \
-      %>
-      <%= render 'layouts/navigation' %>
-      <%= render 'layouts/alert' %>
-    <% else %>
-    <header>
-      <nav class="navbar navbar-expand-lg fixed-top navbar-transparent ">
-        <div class="container">
-          <div class="navbar-translate">
-            <%= link_to root_url, {:class => "navbar-brand", 'rel'=> "tooltip", 'title'=> "Medio", 'data-placement' => "Bottom"} do %>
-              <h2><span>Medio</span></h2>
-            <% end %>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <% end %>
+    <%= render 'layouts/navigation' %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
 </html>
+
+<%= debug(params) if Rails.env.development? %>
