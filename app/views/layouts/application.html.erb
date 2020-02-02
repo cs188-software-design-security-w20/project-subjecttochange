@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    <!-- <%= render 'layouts/navigation' %> %> -->
+    <%= render 'layouts/navigation' unless current_page?(root_url)%>
     <!-- <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
     <%= yield %>
