@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  resource :practices
-  resource :patients
-
   devise_for :patients,  path: 'patients', \
     controllers: { \
       sessions: 'patients/sessions',

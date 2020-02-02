@@ -9,12 +9,12 @@
       <ul class="navbar-nav">
         <li class="nav-item font-weight-bold p-1">
           <% if patient_signed_in? %>
-            <%= link_to current_patient.first_name + '\'s Profile', patients_path %>
+            <%= link_to current_patient.first_name + '\'s Profile', patient_session_path %>
             <%= link_to destroy_patient_session_path, method: :delete, class:"btn btn-default btn-sm" do %>
               Log out
             <% end %>
           <% elsif practice_signed_in?%>
-            <%= link_to current_practice.first_name + '\'s Profile', practice_path %>
+            <%= link_to current_practice.first_name + '\'s Profile', practice_session_path %>
             <%= link_to 'Log out', destroy_practice_session_path, method: :delete %>
           <% else %>
               <%= link_to "Patient Login", new_patient_session_path, {:class=>'nav-link font-weight-bold'} %>
