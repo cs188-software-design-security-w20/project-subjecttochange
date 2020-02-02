@@ -17,11 +17,11 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about'
 
   authenticated :patient do
-    root :to => 'patients#show', :as => 'authenticated_patient_root_path'
+    root :to => 'patients#show', :as => 'authenticated_patient_root'
   end
 
   authenticated :practice do
-    root :to => 'practices#show', :as => 'authenticated_practice_root_path'
+    root :to => 'practices#show', :as => 'authenticated_practice_root'
   end
 
  root 'static_pages#home'

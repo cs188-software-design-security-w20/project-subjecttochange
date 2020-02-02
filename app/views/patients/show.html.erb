@@ -1,12 +1,19 @@
-<div class="row mt-5">
-  Names
-</div>
-<div class="row mt-5">
-    <ul>
-        <li>
-            <%= current_patient.first_name %>
-            <%= current_patient.last_name %>:
-            <%= current_patient.email %>
-        </li>
-    </ul>
+<div class="index-page">
+  <%= render 'layouts/alert' %>
+  <div class="wrapper">
+    <div class="page-header header-filter">
+      <div class="squares square1"></div>
+      <div class="squares square2"></div>
+      <div class="squares square3"></div>
+      <div class="squares square4"></div>
+      <div class="squares square5"></div>
+      <div class="squares square6"></div>
+      <div class="squares square7"></div>
+      <!-- Renders central slogan -->
+      <%= render 'layouts/brand' %>
+
+    </div>
+
+  </div>
+
 </div>
