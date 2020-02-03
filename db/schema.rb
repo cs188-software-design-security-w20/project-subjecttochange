@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_020427) do
+ActiveRecord::Schema.define(version: 2020_02_03_022243) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "patient_email"
@@ -42,13 +42,13 @@ ActiveRecord::Schema.define(version: 2020_02_03_020427) do
     t.string "email", default: "", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "middle_initial", limit: 1
-    t.string "gender", limit: 1
+    t.string "middle_initial"
+    t.string "gender"
     t.string "phone_number"
     t.string "street_address"
     t.string "city"
-    t.string "state", limit: 2
-    t.integer "zipcode", limit: 5
+    t.string "state"
+    t.string "zipcode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "encrypted_password", default: "", null: false
@@ -76,13 +76,13 @@ ActiveRecord::Schema.define(version: 2020_02_03_020427) do
     t.string "email", default: "", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "middle_initial", limit: 1
+    t.string "middle_initial"
     t.string "med_school"
     t.string "phone_number"
     t.string "street_address"
     t.string "city"
-    t.string "state", limit: 2
-    t.integer "zipcode", limit: 5
+    t.string "state"
+    t.string "zipcode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "encrypted_password", default: "", null: false
