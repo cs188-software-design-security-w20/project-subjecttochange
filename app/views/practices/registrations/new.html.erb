@@ -25,7 +25,7 @@
                 <%= f.text_field :first_name, :required => true, autofocus: true, autocomplete: "fname", class: 'form-control mb-2', placeholder: 'First Name' %>
               </div>
               <div class="field">
-                <%= f.text_field :middle_initial, autofocus: true, class: 'form-control mb-2', placeholder: 'Middle Initial' %>
+                <%= f.text_field :middle_initial, autofocus: true, class: 'form-control mb-2', placeholder: 'Middle Initial', maxlength:'1'  %>
               </div>
               <div class="field">
                 <%= f.text_field :last_name, :required => true, autofocus: true, autocomplete: "lname", class: 'form-control mb-2', placeholder: 'Last Name' %>
@@ -49,13 +49,13 @@
                 <%= f.text_field :phone_number, :required => true, autocomplete: "tel", class: 'form-control mb-2', placeholder: 'Phone Number' %>
               </div>
               <div class="field">
-                <%= f.text_field :city, :required => true, autocomplete: "city", class: 'form-control mb-2', placeholder: 'City' %>
+                <%= f.text_field :city, :required => true, autocomplete: "city", class: 'form-control mb-2', placeholder: 'City', maxlength:'2'  %>
               </div>
               <div class="field">
                 <%= f.text_field :state, :required => true, autocomplete: "state", class: 'form-control mb-2', placeholder: 'State' %>
               </div>
               <div class="field">
-                <%= f.text_field :zipcode, :required => true, autocomplete: "zipcode", class: 'form-control mb-2', placeholder: 'Zipcode' %>
+                <%= f.text_field :zipcode, :required => true, autocomplete: "zipcode", class: 'form-control mb-2', placeholder: 'Zipcode', maxlength:'5'  %>
               </div>
 
               <div class="actions">
