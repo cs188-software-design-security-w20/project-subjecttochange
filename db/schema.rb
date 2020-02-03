@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_31_011429) do
+ActiveRecord::Schema.define(version: 2020_02_03_020427) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "patient_email"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_01_31_011429) do
     t.string "last_name"
     t.string "middle_initial", limit: 1
     t.string "gender", limit: 1
-    t.integer "phone_number"
+    t.string "phone_number"
     t.string "street_address"
     t.string "city"
     t.string "state", limit: 2
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_01_31_011429) do
     t.string "last_name"
     t.string "middle_initial", limit: 1
     t.string "med_school"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.string "street_address"
     t.string "city"
     t.string "state", limit: 2
