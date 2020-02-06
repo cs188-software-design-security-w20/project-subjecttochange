@@ -1,0 +1,39 @@
+</header>
+<%= render 'layouts/alert' %>
+<div class="section-signup mt-0">
+  <div class="container mb-5">
+    <div class="row row-grid justify-content-between align-items-center">
+
+      <div class="col-lg-6 text-center align-text-center p-1 margin0">
+        <div class="card card-register p-2 mb-2">
+          <div class="mt-4 justify-content-md-center">
+            <h4 class="mb-1 text-white text-center h2 font-weight-bold">New Appointment</h4>
+          </div>
+          <div class="container">
+            <%=  form_with(url: "#", method: "get") do |f| %>
+              <div class="field">
+                <%= f.text_field :patient_email, :required => true, autofocus: true, autocomplete: "email", class: 'form-control mb-2', placeholder: 'Your Email' %>
+              </div>
+              <div class="field">
+                <%= f.text_field :practice_email, :required => true, autofocus: true, class: 'form-control mb-2', placeholder: 'Practice Email' %>
+              </div>
+              <div class="field">
+                <%= f.datetime_field :appt_start, :required => true, autofocus: true, class: 'form-control mb-2', placeholder: 'Appointment time' %>
+              </div>
+              <div class="field">
+                <%= f.number_field :duration, :required => true, autofocus: true, class: 'form-control mb-2', placeholder: 'Duration' %>
+              </div>
+
+              <div class="field">
+                <%= f.text_field :description, class: 'form-control mb-2', placeholder: 'Description' %>
+              </div>
+              <div class="actions">
+                <%= f.submit "Create Appointment", class:'col btn btn-info btn-round btn-lg text-center mt-4' %>
+              </div>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
