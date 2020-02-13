@@ -10,6 +10,7 @@ class PatientsController < ApplicationController
   end
 
   def calendar
+    @appointment = current_patient.appointments.build
     d = Date.today
     @date= d.at_beginning_of_week
     dstart = d.at_beginning_of_week.strftime("%d")

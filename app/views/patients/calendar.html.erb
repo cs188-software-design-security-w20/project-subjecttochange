@@ -3,15 +3,23 @@
 <h class="header">
   <div class="oneline">
   <h class="inner left">
-    <%= link_to "<", '...', class: 'btn btn-round btn-lg text-center left arrow', method: :put, remote: true %>
+    <%= link_to "<", '...', class: 'btn btn-round btn-lg text-center left arrow', method: :post, remote: true %>
   </h>
   <h2 class="inner"><span><%=  @label %></span></h2>
   <h class="inner right">
-     <%= link_to ">", '...', class: 'btn btn-round btn-lg text-center right arrow', method: :put, remote: true %>
+     <%= link_to ">", '...', class: 'btn btn-round btn-lg text-center right arrow', method: :post, remote: true %>
   </h>
   </div>
 </h>
-<h><%= link_to "New Appointment",  appointment_path, {:class => "btn btn-info btn-round btn-lg text-center mt-4 right"}%></h>
+<div class="cal-container">
+  <div class="app-section">
+    <aside class="">
+      <section>
+        <%= render :partial => 'patients/shared/appointment', :formats => [:html] %>
+      </section>
+    </aside>
+  </div>
+<div class="cal-section">
 <table>
   <thead>
     <tr>
@@ -428,5 +436,6 @@
 
   </tbody>
 </table>
-
+</div>
+</div>
 </div>
