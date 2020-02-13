@@ -13,6 +13,10 @@
 </h>
 <div class="cal-container">
   <div class="app-section">
+  <% flash.each do |key, value| %>
+    <%= content_tag :div, value, class: "flash #{key}" %>
+  <% end %>
+  <%= @appointment.errors.full_messages.first if @appointment.errors.any? %>
     <aside class="">
       <section>
         <%= render :partial => 'patients/shared/appointment', :formats => [:html] %>

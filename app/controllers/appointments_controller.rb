@@ -8,10 +8,10 @@ class AppointmentsController < ApplicationController
     
     if @appointment.save  
       flash[:success] = "Appointment created!"
-      redirect_to root_path, :flash => { :success => "Appointment created!" }
+      redirect_to '/calendar'
     else
       flash[:failure] = "Appointment not created"
-      render 'patients/show'
+      redirect_to '/calendar'
     end
   end
 
