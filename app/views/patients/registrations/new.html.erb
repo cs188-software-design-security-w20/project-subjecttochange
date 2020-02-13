@@ -36,6 +36,8 @@
 
               <div class="field">
                 <%= f.password_field :password, :required => true, autocomplete: "new-password", class: 'form-control mb-2', placeholder: 'Password (' + @minimum_password_length.to_s + ' characters minimum)' %>
+                <meter max="4" id="password-strength-meter"></meter>
+                <p id="password-strength-text"></p>
               </div>
 
               <div class="field">

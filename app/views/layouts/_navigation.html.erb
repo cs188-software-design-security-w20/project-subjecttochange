@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top" <% if !patient_signed_in? %>style="background: transparent;" <% end %>>
+<nav class="navbar navbar-expand-lg fixed-top" <% if !patient_signed_in? and !practice_signed_in? %>style="background: transparent;" <% end %>>
   <div class="container">
     <div class="navbar-translate">
         <%= link_to root_url, class: "navbar-brand mt-0 pt-0 pb-0" do %>

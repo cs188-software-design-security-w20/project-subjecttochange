@@ -49,10 +49,10 @@
                 <%= f.text_field :phone_number, :required => true, autocomplete: "tel", class: 'form-control mb-2', placeholder: 'Phone Number' %>
               </div>
               <div class="field">
-                <%= f.text_field :city, :required => true, autocomplete: "city", class: 'form-control mb-2', placeholder: 'City', maxlength:'2'  %>
+                <%= f.text_field :city, :required => true, autocomplete: "city", class: 'form-control mb-2', placeholder: 'City'  %>
               </div>
               <div class="field">
-                <%= f.text_field :state, :required => true, autocomplete: "state", class: 'form-control mb-2', placeholder: 'State' %>
+                <%= f.text_field :state, :required => true, autocomplete: "state", class: 'form-control mb-2', placeholder: 'State', maxlength:'2' %>
               </div>
               <div class="field">
                 <%= f.text_field :zipcode, :required => true, autocomplete: "zipcode", class: 'form-control mb-2', placeholder: 'Zipcode', maxlength:'5'  %>
