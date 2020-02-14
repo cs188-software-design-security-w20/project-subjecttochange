@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 
 #Password Strength Checker
-gem 'password_strength'
+#gem 'password_strength'
 
 
 # Use Redis adapter to run Action Cable in production
