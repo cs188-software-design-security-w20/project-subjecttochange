@@ -1,6 +1,8 @@
 <div class="page-header">
     <div class="container">
       <div class="content-center brand">
+        <%= render 'layouts/alert' %>
+
         <h3 class="font-weight-bold">Your personalized Medio Dashboard:</h3>
         <div class="row justify-content-md-center">
             <%= link_to "Home", '#', {:class => "col btn-neutral btn-lg m-2 text-center pt-5 pb-5"} %>
@@ -9,7 +11,7 @@
         </div>
         <div class="row justify-content-md-center">
             <%= link_to "Records", '#', {:class => "col btn-neutral btn-lg m-2 text-center pt-5 pb-5"} %>
-            <%= link_to "Settings", '#', {:class => "col btn-neutral btn-lg m-2 text-center pt-5 pb-5"} %>
+            <%= link_to "Edit Your Patient Information", edit_patient_registration_path, {:class => "col btn-neutral btn-lg m-2 text-center pt-5 pb-5"} %>
         </div>
       </div>
     </div>

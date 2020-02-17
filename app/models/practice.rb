@@ -4,6 +4,6 @@ class Practice < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :timeoutable, :trackable, :lockable
 
-  validates :first_name, :last_name, :email, :password, :med_school, :phone_number, :city, :state, :zipcode, presence: true
+  # validates :first_name, :last_name, :email, :med_school, :phone_number, :city, :state, :zipcode, presence: true
   validates :email, uniqueness: true
 end

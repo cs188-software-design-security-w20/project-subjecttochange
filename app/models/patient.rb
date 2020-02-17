@@ -4,7 +4,7 @@ class Patient < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :timeoutable, :trackable, :lockable
 
-  validates :first_name, :last_name, :email, :password, :phone_number, :city, :state, :zipcode, :birthdate, presence: true
+  # validates :first_name, :last_name, :email, :phone_number, :city, :state, :zipcode, :birthdate, presence: true
   validates :email, uniqueness: true
 
 
