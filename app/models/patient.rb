@@ -7,5 +7,5 @@ class Patient < ApplicationRecord
   # validates :first_name, :last_name, :email, :phone_number, :city, :state, :zipcode, :birthdate, presence: true
   validates :email, uniqueness: true
 
-
+  has_many :medical_records
 end

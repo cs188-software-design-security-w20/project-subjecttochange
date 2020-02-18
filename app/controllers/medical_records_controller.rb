@@ -25,6 +25,8 @@ class MedicalRecordsController < ApplicationController
     # POST /medical_records.json
     def create
       @medical_record = MedicalRecord.new(medical_record_params)
+
+      current_patient.medical_records << @medical_record
   
       respond_to do |format|
         if @medical_record.save
