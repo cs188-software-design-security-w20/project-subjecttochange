@@ -2,22 +2,28 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <%= link_to '#' do %>
-          <h1 class="title mb-0"><%= full_title(yield(:title)) %></h1>
+        <%= link_to root_url do %>
+          <h1 class="title mb-0">Medio</h1>
         <% end %>
         <h4 class="m-0  font-weight-light col-md-8 pl-0">The streamlined solution for medical records and appointment creation.</h4>
       </div>
       <div class="col-md-2">
         <ul class="nav">
           <li class="nav-item">
-              <%= link_to "Home", '#', {:class=>'nav-link'} %>
+              <%= link_to "Home", root_url, {:class=>'nav-link'} %>
+          </li>
+          <% if (!patient_signed_in? and !practice_signed_in?) %>
+          <li class="nav-item">
+              <%= link_to "Patient Login", new_patient_session_path, {:class=>'nav-link'} %>
           </li>
           <li class="nav-item">
-              <%= link_to "Register", '#', {:class=>'nav-link'} %>
+              <%= link_to "Practice Login", new_practice_session_path, {:class=>'nav-link'} %>
           </li>
+          <% else %>
           <li class="nav-item">
-              <%= link_to "Login", '#', {:class=>'nav-link'} %>
+            <%= link_to 'Log out', destroy_practice_session_path, method: :delete, class:"nav-link" %>
           </li>
+          <% end %>
         </ul>
       </div>
       <div class="col-md-2">
@@ -26,7 +32,7 @@
               <%= link_to "Contact Us", '#', {:class=>'nav-link'} %>
           </li>
           <li class="nav-item">
-              <%= link_to "About Us", '#', {:class=>'nav-link'} %>
+              <%= link_to "About Us", about_url, {:class=>'nav-link'} %>
           </li>
           <li class="nav-item">
               <%= link_to "Investor Relations", '#', {:class=>'nav-link'} %>

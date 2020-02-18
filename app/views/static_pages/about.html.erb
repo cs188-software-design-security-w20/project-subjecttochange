@@ -1,4 +1,31 @@
-<% provide(:title, "About") %>
+<% provide(:title, "About Us") %>
 
-<h1>StaticPages#about</h1>
-<p>Find me in app/views/static_pages/about.html.erb</p>
+<div class="landing-page">
+    <%= render 'layouts/alert' %>
+    <div class="wrapper">
+      <div class="page-header">
+        <%= image_tag("blob.png", :class=> 'path') %>
+        <%= image_tag("path2.png", :class=> 'path2') %>
+        <%= image_tag("triunghiuri.png", :class=> 'shapes triangle') %>
+        <%= image_tag("waves.png", :class=> 'shapes wave') %>
+        <%= image_tag("patrat.png", :class=> 'shapes squares') %>
+        <%= image_tag("cercuri.png", :class=> 'shapes circle') %>
+        <div class="content-center">
+          <div class="row row-grid justify-content-between align-items-center text-left">
+            <div class="col-lg-6 col-md-6">
+              <h1 class="bold">About Us
+                <br/>
+              </h1>
+              <p class="text-justify">Medio was founded in January 2020 with the goal of eliminating the hassle of coordinating medical appointments. The four-person Medio team was founded by Lauren Fromm, David Lee, Pierson Marks, and Kevin Tolby, who all met while enrolled at UCLA as Computer Science students.</p>
+              <br>
+              <p class="text-justify">Medio's mission is to reinvent how medical appointments are created. Through a central dashboard, patients are able to view their practice's calendars, and add appointments seamlessly, without the need for back and forth communication with the practice's secretary. </p>
+              <br>
+              <p class="text-justify">Additionally, Medio makes it extremely simple for patients to view their medical records through a secure portal and transfer information easily.</p>
+            </div>
+            <div class="col-lg-5 ">
+              <%= image_tag("heart.png", :alt => "heart icon") %>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
