@@ -1,0 +1,29 @@
+<div class="page-header">
+  <div class="container">
+    <div class="content-center brand">
+      <h3 class="font-weight-bold">Your Profile:</h3>
+      <div class="row justify-content-md-center">
+        <%= current_patient.email %> <br>
+        <%= current_patient.first_name %> <br>
+        <%= current_patient.middle_initial %> <br>
+        <%= current_patient.last_name %> <br>
+        <%= current_patient.gender %> <br>
+        <%= current_patient.birthdate %> <br>
+        <%= current_patient.phone_number %> <br>
+        <%= current_patient.street_address %> <br>
+        <%= current_patient.city %> <br>
+        <%= current_patient.state %> <br>
+        <%= current_patient.zipcode %> <br>
+        <%#= link_to "Home", '#', {:class => "col btn-neutral btn-lg m-2 text-center pt-5 pb-5"} %>
+        <%#= link_to "Messages", '#', {:class => "col btn-neutral btn-lg m-2 text-center pt-5 pb-5"} %>
+        <%#= link_to "Calendar", calendar_path, {:class => "col btn-neutral btn-lg m-2 text-center pt-5 pb-5"} %>
+      </div>
+      <div class="row justify-content-md-center">
+        <%#= link_to "Records", '#', {:class => "col btn-neutral btn-lg m-2 text-center pt-5 pb-5"} %>
+        <%#= link_to "Settings", '#', {:class => "col btn-neutral btn-lg m-2 text-center pt-5 pb-5"} %>
+
+        <%= link_to current_patient.first_name + '\'s Profile', edit_patient_registration_path, {:class=>'nav-link font-weight-bold'} %>
+      </div>
+    </div>
+  </div>
+</div>`

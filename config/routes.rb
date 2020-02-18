@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about'
   get '/calendar', to: 'patients#calendar'
   get '/appointment', to: 'patients#appointment'
+  get '/profile', to: 'patients#see_profile', as: 'profile'
 
   authenticated :patient do
     root :to => 'patients#show', :as => 'authenticated_patient_root'
