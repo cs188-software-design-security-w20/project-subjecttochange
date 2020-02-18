@@ -9,6 +9,9 @@ class PatientsController < ApplicationController
   def new
   end
 
+  def profile
+  end
+
   def calendar
     d = Date.today
     @date= d.at_beginning_of_week
