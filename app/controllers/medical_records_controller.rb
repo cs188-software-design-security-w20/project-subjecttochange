@@ -28,7 +28,7 @@ class MedicalRecordsController < ApplicationController
   
       respond_to do |format|
         if @medical_record.save
-          format.html { redirect_to @medical_record, notice: 'MedicalRecord was successfully created.' }
+          format.html { redirect_to medical_records_path, notice: 'MedicalRecord was successfully created.' }
           format.json { render :show, status: :created, location: @medical_record }
         else
           format.html { render :new }

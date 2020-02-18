@@ -7,12 +7,15 @@
 
 <h1>Medical Records</h1>
 
+<%= link_to 'New Medical Record', new_medical_record_path %>
+
 <table>
   <thead>
     <tr>
       <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th>View</th>
+      <th>Download</th>
+      <th>Date Created</th>
     </tr>
   </thead>
 
@@ -20,9 +23,9 @@
     <% @medical_records.each do |medical_record| %>
       <tr>
         <td><%= medical_record.title %></td>
-        <td><%= link_to 'Show', medical_record %></td>
-        <td><%= link_to 'Edit', edit_medical_record_path(medical_record) %></td>
-        <td><%= link_to 'Destroy', medical_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "View File", medical_record.file %></td>
+        <td><%= link_to "Download File", medical_record.file, download: '' %></td>
+        <td><%= medical_record.created_at %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New Medical Record', new_medical_record_path %>
+
