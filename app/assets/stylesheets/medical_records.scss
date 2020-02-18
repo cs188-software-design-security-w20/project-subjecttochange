@@ -1,0 +1,162 @@
+table.medical_records {
+    font-family:sans-serif;
+            width: 100%;
+            border-spacing: 0;
+            border-collapse: separate;
+            table-layout: fixed;
+            margin-bottom: 50px;
+  
+            thead{
+                  tr{
+                        th{
+                              background: rgb(192, 25, 61);
+                              color: lighten(#626E7E, 40%);
+                              padding: 0.5em;
+                              overflow: hidden;
+  
+                              &:first-child{
+                                    border-radius:3px 0 0 0;
+                              }
+                              &:last-child{
+                                    border-radius:0 3px  0 0;
+                              }
+  
+                              .day{
+                                    display: block;
+                                    font-size: 1.2em;
+                                    border-radius: 50%;
+                                        width: 30px;
+                                    height: 100%;
+                                    margin: 0 auto 5px;
+                                    padding: 5px;
+            line-height: 1.8;
+  
+                                      &.active{
+                                            background: lighten(#626E7E, 40%);
+                                            color: #626E7E;
+                                      }
+                              }
+  
+                              .short{
+                                    display: none;
+                              }
+  
+                              i{
+                                    vertical-align: middle;
+                                    font-size: 2em;
+                              }
+                        }
+                  }
+            }
+            tbody{
+                  tr{
+                        background: lighten(#626E7E, 40%);
+  
+                            &:nth-child(odd){
+                                  background: darken(lighten(#626E7E, 40%), 3%);
+                            }
+                            &:nth-child(4n+0){
+                                  td{
+                                        border-bottom:1px solid #626E7E;
+                                  }
+                            }
+                        td{
+                              text-align: center;
+                              vertical-align: middle;
+                              border-left: 1px solid #626E7E;
+                              position: relative;
+                              height: 17px;
+                              cursor: pointer;
+  
+                              &:last-child{
+                                    border-right:1px solid #626E7E;
+                              }
+          &.hour{
+                                    font-size: 80%;
+                                    padding: 0;
+                                    color: #626E7E;
+                                    background:#fff;
+                                    border-bottom:1px solid #626E7E;
+                                    border-collapse: separate;
+                                    min-width: 100px;
+                                    cursor: default;
+  
+                                    span{
+                                          display: block;
+  
+                                    }
+                              }
+                        }
+                  }
+            }
+  
+            @media(max-width:60em){
+  
+                  thead{
+                        tr{
+                              th{
+                                    .long{
+                                          display: none;
+                                    }
+  
+                                    .short{
+                                          display: block;
+                                    }
+  
+                              }
+                        }
+                  }
+  
+                  tbody{
+                        tr{
+                              td{
+                                    &.hour{
+                                          span{
+                                                transform:rotate(270deg);
+                -webkit-transform:rotate(270deg);
+                -moz-transform:rotate(270deg);
+                                          }
+                                    }
+                  }
+                        }
+                  }
+            }
+  
+            @media(max-width:27em){
+                  thead{
+                        tr{
+                              th{
+                                    font-size: 45%;
+                                    .day{
+                                          display: block;
+                                          font-size: 1.2em;
+                                          border-radius: 50%;
+                                                      width: 20px;
+                                          height: 100%;
+                                          margin: 0 auto 5px;
+                                          padding: 5px;
+  
+                                          &.active{
+                                                background: lighten(#626E7E, 40%);
+                                                color: #626E7E;
+                                          }
+                                    }
+                              }
+                        }
+                  }
+                  tbody{
+                        tr{
+                              td{
+                                    &.hour{
+                                          font-size: 1.7em;
+                                          span{
+                                            transform:translateY(16px)rotate(270deg);
+                -webkit-transform:translateY(16px)rotate(270deg);
+                -moz-transform:translateY(16px)rotate(270deg);
+                                          }
+                                    }
+              }
+                        }
+                  }
+            }
+      }
