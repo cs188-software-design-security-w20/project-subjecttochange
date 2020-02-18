@@ -15,6 +15,7 @@
  *= require font-awesome
  *= require theme/blk-design-system.css
  *= require theme/demo.css
+ *= require simple_calendar
  */
 
  meter {
