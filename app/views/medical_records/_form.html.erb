@@ -1,3 +1,5 @@
+<br>
+
 <%= form_with(model: medical_record, local: true) do |form| %>
   <% if medical_record.errors.any? %>
     <div id="error_explanation">
@@ -17,8 +19,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.label :file %>
+    <%= form.file_field :file %>
   </div>
 
   <div class="actions">

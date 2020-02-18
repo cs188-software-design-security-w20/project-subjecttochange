@@ -69,7 +69,7 @@ class MedicalRecordsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def medical_record_params
-        params.require(:medical_record).permit(:title, :description, :file)
+        params.require(:medical_record).permit(:title, :file)
       end
   end
   

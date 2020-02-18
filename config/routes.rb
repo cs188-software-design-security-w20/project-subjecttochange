@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       registrations: 'practices/registrations' \
     }
 
+  resources :medical_records
+
   get 'static_pages/about'
   get 'static_pages/home'
   get 'static_pages/newappointment'
@@ -19,6 +21,7 @@ Rails.application.routes.draw do
   get '/calendar', to: 'patients#calendar'
   get '/appointment', to: 'patients#appointment'
   get '/profile', to: 'patients#see_profile', as: 'profile'
+  get '/medical_record', to: 'medical_records#index'
 
   authenticated :patient do
     root :to => 'patients#show', :as => 'authenticated_patient_root'
