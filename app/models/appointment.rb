@@ -18,7 +18,7 @@ class Appointment < ApplicationRecord
   end
 
   def end_time
-    (self.appt_start.to_time + 1).to_datetime
+    (self.appt_start.to_time + 1.hours).to_datetime
   end
 
 end
