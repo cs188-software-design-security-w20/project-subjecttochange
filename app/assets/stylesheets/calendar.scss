@@ -8,6 +8,18 @@
     padding: 5% 5% 0 5%;
 }
 
+.appointment, .client, .location {
+  line-height: 20px;
+  margin-bottom: 40px;
+}
+
+.slot {
+  border-style: solid;
+  border-width: 1px;
+  padding: 10%;
+  margin: 5% 0;
+}
+
 .oneline {
   width:100%;
   text-align: center;

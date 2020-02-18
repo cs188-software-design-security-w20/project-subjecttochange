@@ -5,6 +5,7 @@ class AppointmentsController < ApplicationController
   def create
 	  @appointment = Appointment.new(appointment_params)
     @appointment.patient_email = current_patient.email
+    @appointment.duration = 1
     
     if @appointment.save  
       flash[:success] = "Appointment created!"
