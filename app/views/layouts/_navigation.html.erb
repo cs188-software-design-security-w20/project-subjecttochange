@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top" <% if !patient_signed_in? %>style="background: transparent;" <% end %>>
+<nav class="navbar navbar-expand-lg fixed-top" <% if !patient_signed_in? and !practice_signed_in? %>style="background: transparent;" <% end %>>
   <div class="container">
     <div class="navbar-translate">
         <%= link_to root_url, class: "navbar-brand mt-0 pt-0 pb-0" do %>
@@ -9,12 +9,14 @@
       <ul class="navbar-nav">
         <li class="nav-item font-weight-bold p-1">
           <% if patient_signed_in? %>
-            <%= link_to current_patient.first_name + '\'s Profile', patient_session_path, {:class=>'nav-link font-weight-bold'} %>
+            <!-- previously was "patient_session_path" -->
+            <!-- https://bytes.babbel.com/en/articles/2014-07-28-external-url-building.html -->
+            <%= link_to current_patient.first_name + '\'s Profile', patient_profile_path, {:class=>'nav-link font-weight-bold'} %>
             <%= link_to destroy_patient_session_path, method: :delete, class:"btn btn-default btn-sm" do %>
               Log out
             <% end %>
           <% elsif practice_signed_in?%>
-            <%= link_to current_practice.first_name + '\'s Profile', practice_session_path, {:class=>'nav-link font-weight-bold'} %>
+            <%= link_to current_practice.first_name + '\'s Profile', practice_profile_path, {:class=>'nav-link font-weight-bold'} %>
             <%= link_to 'Log out', destroy_practice_session_path, method: :delete, class:"btn btn-default btn-sm" %>
           <% else %>
               <%= link_to "Patient Login", new_patient_session_path, {:class=>'nav-link font-weight-bold'} %>

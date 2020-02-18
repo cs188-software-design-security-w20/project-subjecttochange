@@ -58,8 +58,10 @@
           <p class="mt-0 pt-0">Not a user? Sign up
             <% if current_page?(new_patient_session_path) %>
               <%= link_to "here.",   new_patient_registration_path %>
-            <% else %>
+            <% elsif current_page?(new_practice_session_path) %>
               <%= link_to "here.",   new_practice_registration_path %>
+            <% else %>
+              <%= link_to "here.",   root_path %>
             <% end %></p>
       </div>
       <% end %>

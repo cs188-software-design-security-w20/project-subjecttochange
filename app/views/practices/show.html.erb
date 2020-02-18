@@ -1,12 +1,18 @@
-<div class="row mt-5">
-  Names
-</div>
-<div class="row mt-5">
-    <ul>
-        <li>
-            <%= current_practice.first_name %>
-            <%= current_practice.last_name %>:
-            <%= current_practice.email %>
-        </li>
-    </ul>
-</div>
+<div class="page-header">
+    <div class="container">
+      <div class="content-center brand">
+        <%= render 'layouts/alert' %>
+
+        <h3 class="font-weight-bold">Your personalized Medio Dashboard:</h3>
+        <div class="row justify-content-md-center">
+            <%= link_to "Home", '#', {:class => "col btn-neutral btn-lg m-2 text-center pt-5 pb-5"} %>
+            <%= link_to "Messages", '#', {:class => "col btn-neutral btn-lg m-2 text-center pt-5 pb-5"} %>
+            <%= link_to "Calendar", calendar_path, {:class => "col btn-neutral btn-lg m-2 text-center pt-5 pb-5"} %>
+        </div>
+        <div class="row justify-content-md-center">
+            <%= link_to "Records", '#', {:class => "col btn-neutral btn-lg m-2 text-center pt-5 pb-5"} %>
+            <%= link_to "Edit Your Practice Information", edit_practice_registration_path, {:class => "col btn-neutral btn-lg m-2 text-center pt-5 pb-5"} %>
+        </div>
+      </div>
+    </div>
+</div>`

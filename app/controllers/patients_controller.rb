@@ -9,6 +9,9 @@ class PatientsController < ApplicationController
   def new
   end
 
+  def profile
+  end
+
   def calendar
 
 
