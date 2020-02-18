@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @medical_record.title %>
+</p>
+
+<%= link_to "View File", @medical_record.file %>
+<%= link_to "Download File", @medical_record.file, download: '' %>
+
+<%= link_to 'Edit', edit_medical_record_path(@medical_record) %> |
+<%= link_to 'Back', medical_records_path %>
