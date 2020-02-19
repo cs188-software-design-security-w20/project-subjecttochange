@@ -14,9 +14,6 @@ class PatientsController < ApplicationController
 
   def calendar
     @appointments = Appointment.where(patient_email: current_patient.email).or(Appointment.where(practice_email: params[:prac]))
-    @appointments.each do |app|
-      logger.debug(app)
-    end
     @practices = Practice.all
     @doctor_choices = {
       "Select a practice" => ""
@@ -32,7 +29,6 @@ class PatientsController < ApplicationController
       $prac = @doctor_choices.values[0]
       @prac = nil
     end
-    logger.debug($prac)
 
     @appointment = current_patient.appointments.build
 

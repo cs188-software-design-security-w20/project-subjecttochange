@@ -1,11 +1,11 @@
 module AppointmentsCalendarHelper
 
-  def appointment_position(appointment)
-    "top: #{ ( ( (appointment.appt_start - appointment.appt_start.midnight)/3600 - 8 ) * 40 ) + 28}px;"
-  end
-
-  def appointment_height(appointment)
-    "height: #{1 * 40/3600}px;"
+  def appointment_belongs_to_patient(appointment)
+    if (appointment.patient_email == current_patient.email)
+      " patient-app"
+    else
+      " other-app"
+    end
   end
 
   def highlight_appointment(appointment)
@@ -15,7 +15,25 @@ module AppointmentsCalendarHelper
   end
 
   def appointment_text(appointment)
-    "<span class='name'>#{appointment.practice_email} <br> at #{appointment.start_time.strftime("%l:%M %p")} </span>".html_safe
+    practice = Practice.all
+    first = ""
+    last = ""
+    practice.each do |pr|
+      if (pr.email == appointment.practice_email)
+        first = pr.first_name
+        last = pr.last_name
+      end
+    end
+    if (appointment.patient_email == current_patient.email)
+      "<span class='name'> Appointment with #{first} #{last}  <br> at #{appointment.start_time.strftime("%l:%M %p")} </span>".html_safe
+    else
+      "<span class='name'> #{first} #{last} is busy <br> at #{appointment.start_time.strftime("%l:%M %p")} </span>".html_safe
+    end
+
+  end
+
+  def appointment_text_practice(appointment)
+    "<span class='name'> Appointment at #{appointment.start_time.strftime("%l:%M %p")} </span>".html_safe
   end
 
 end
