@@ -1,7 +1,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="layout">
+    <% if @prac.present? %>
+      <div class="header"> Viewing calendar for
+        <span><%=  @prac %></span>
+      </div>
+      <% else %>
+          <div class="header"> Select a practice to view their calendar
+          </div>
+      <% end %>
   <div class="cal-container">
     <div class="app-section">
+     <aside class="dropdown">
+      <section>
+        <%= render :partial => 'patients/shared/dropdown', :formats => [:html] %>
+      </section>
+    </aside>
+
+
     <% flash.each do |key, value| %>
       <%= content_tag :div, value, class: "flash #{key}" %>
     <% end %>

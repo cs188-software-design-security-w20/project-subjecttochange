@@ -13,11 +13,29 @@ class PatientsController < ApplicationController
   end
 
   def calendar
+    @appointments = Appointment.where(patient_email: current_patient.email).or(Appointment.where(practice_email: params[:prac]))
+    @appointments.each do |app|
+      logger.debug(app)
+    end
+    @practices = Practice.all
+    @doctor_choices = {
+      "Select a practice" => ""
+    }
 
+    @practices.each do |practice|
+      @doctor_choices.store(practice.first_name + " " + practice.last_name, practice.email)
+    end
+    if (params.has_key?(:prac))
+       $prac = params[:prac]
+       @prac = @doctor_choices.key($prac)
+    else
+      $prac = @doctor_choices.values[0]
+      @prac = nil
+    end
+    logger.debug($prac)
 
     @appointment = current_patient.appointments.build
-    @appointments = Appointment.where(patient_email: current_patient.email).or(Appointment.where(practice_email: "doctor@gmail.com"))
-    .select("practice_email, appt_start")
+
   end
 
 

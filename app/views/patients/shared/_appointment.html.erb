@@ -2,9 +2,6 @@
 <div class="container">
   <%=  form_for(@appointment) do |f| %>
     <div class="field">
-      <%= f.text_field :practice_email, :required => true, autofocus: true, class: 'form-control mb-2', placeholder: 'Practice Email' %>
-    </div>
-    <div class="field">
       <%= f.datetime_field :appt_start, :required => true, autofocus: true, class: 'form-control mb-2', placeholder: 'Appointment time' %>
     </div>
     <div class="field">
