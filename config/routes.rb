@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   get '/about', to: 'static_pages#about'
   get '/calendar', to: 'patients#calendar'
+  get '/practicecalendar', to: 'practices#calendar'
   get '/appointment', to: 'patients#appointment'
   get '/patient_profile', to: 'patients#profile', as: 'patient_profile'
   get '/practice_profile', to: 'practices#profile', as: 'practice_profile'
