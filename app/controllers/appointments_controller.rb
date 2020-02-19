@@ -17,7 +17,7 @@ class AppointmentsController < ApplicationController
     # set end time to be one hour after the start time
     date = @appointment.appt_start
     @appointment.appt_start = (date.to_time + duration.hours).to_datetime
-    end_time = (newdate.to_time + 1.hours).to_datetime
+    end_time = (@appointment.appt_start.to_time + 1.hours).to_datetime
 
     # go through all apointments for current patient and the practice and make sure the times do not overlap
     @appointments = Appointment.where(patient_email: current_patient.email).or(Appointment.where(practice_email: $prac))
