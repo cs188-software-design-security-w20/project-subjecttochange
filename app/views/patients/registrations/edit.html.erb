@@ -51,13 +51,17 @@
                 <%= f.text_field :gender, autocomplete: "sex", class: 'form-control mb-2', placeholder: 'Gender', maxlength:'1'  %>
               </div>
 
-              <div class="field">
+              <!-- <div class="field">
                 <%= f.label :birthdate %>
                 <%= f.date_field :birthdate, autocomplete: "bday", class: 'form-control mb-2', placeholder: 'Birthdate (mm/dd/yyyy)' %>
-              </div>
+              </div> -->
               <div class="field">
                 <%= f.label :phone_number %>
                 <%= f.text_field :phone_number, autocomplete: "tel", class: 'form-control mb-2', placeholder: 'Phone Number' %>
+              </div>
+              <div class="field">
+                <%= f.label :street_address %>
+                <%= f.text_field :street_address, autocomplete: "address", class: 'form-control mb-2', placeholder: 'Street Address' %>
               </div>
               <div class="field">
                 <%= f.label :city %>

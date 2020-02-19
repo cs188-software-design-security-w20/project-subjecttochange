@@ -1,67 +1,32 @@
-<div class="page-header">
-  <div class="container" style="height: 1000px">
-    <div class="content-center brand">
-      <h3 class="font-weight-bold">Your Profile:</h3>
+<div class="section-signup mt-0">
+  <div class="container mb-5 ">
+    <%= render 'layouts/alert' %>
+    <h3 class="font-weight-bold mb-0 pb-0">Your Profile:</h3>
+    <%= link_to 'Edit Your Profile', edit_patient_registration_path, {:class=>'nav-link font-weight-bold'} %>
 
-      <form>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" class="form-control" id="email" value='<%= current_patient.email %>'
-                 name="email" readonly>
-        </div>
-        <div class="form-group">
-          <label for="first_name">First Name</label>
-          <input class="form-control" id="first_name" value='<%= current_patient.first_name %>'
-                 name="first_name" readonly>
-        </div>
-        <div class="form-group">
-          <label for="middle_initial">Middle Initial</label>
-          <input class="form-control" id="middle_initial" value='<%= current_patient.middle_initial %>'
-                 name="middle_initial" readonly>
-        </div>
-        <div class="form-group">
-          <label for="last_name">Last Name</label>
-          <input class="form-control" id="last_name" value='<%= current_patient.last_name %>'
-                 name="last_name" readonly>
-        </div>
-        <div class="form-group">
-          <label for="gender">Gender</label>
-          <input class="form-control" id="gender" value='<%= current_patient.gender %>'
-                 name="gender" readonly>
-        </div>
-        <div class="form-group">
-          <label for="birthdate">Birthdate</label>
-          <input class="form-control" id="birthdate" value='<%= current_patient.birthdate %>'
-                 name="birthdate" readonly>
-        </div>
-        <div class="form-group">
-          <label for="phone_number">Phone Number</label>
-          <input class="form-control" id="phone_number" value='<%= current_patient.phone_number %>'
-                 name="phone_number" readonly>
-        </div>
-        <div class="form-group">
-          <label for="street_address">Street Address</label>
-          <input class="form-control" id="street_address" value='<%= current_patient.street_address %>'
-                 name="street_address" readonly>
-        </div>
-        <div class="form-group">
-          <label for="city">City</label>
-          <input class="form-control" id="city" value='<%= current_patient.city %>'
-                 name="city" readonly>
-        </div>
-        <div class="form-group">
-          <label for="state">State</label>
-          <input class="form-control" id="state" value='<%= current_patient.state %>'
-                 name="state" readonly>
-        </div>
-        <div class="form-group">
-          <label for="zipcode">Zipcode</label>
-          <input class="form-control" id="zipcode" value='<%= current_patient.zipcode %>'
-                 name="zipcode" readonly>
-        </div>
-      </form>
-      <%= link_to 'Edit ' + current_patient.first_name + '\'s Profile', edit_patient_registration_path, {:class=>'nav-link font-weight-bold'} %>
+    <div class="text-secondary mt-3">
 
-    </div>  <!-- end content-center brand -->
-  </div>  <!-- end container -->
-</div>  <!-- end page-header -->
+      <b>Full Name: </b><%= fullname(current_patient)%>
+      <br />
+      <b>Email: </b><%= current_patient.email %>
+      <br />
+      <b>Gender: </b><%= gender(current_patient) %>
+      <br />
+      <b>Birthdate: </b><%= Date.strptime(current_patient.birthdate).to_formatted_s(:long) %>
+      <br />
+      <b>Phone Number: </b><%= number_to_phone(current_patient.phone_number, area_code: true) %>
+      <br />
+      <br />
+      <b>Full Address: </b>
+      <br />
+      <%= current_patient.street_address %>
+      <br />
+      <%= fullAddress(current_patient)%>
+      <br />
+      <br />
+
+      <b>Medical Records: </b>
+
+    </div>
+  </div>
+</div>
