@@ -29,10 +29,10 @@
     <% current_patient.medical_records.each do |medical_record| %>
       <tr>
         <td><%= medical_record.title %></td>
-        <td><%= "Practice" %></td>
+        <td><%= medical_record.practice_email %></td>
         <td><%= medical_record.created_at %></td>
-        <td><%= link_to "View File", medical_record.file %></td>
-        <td><%= link_to "Download File", medical_record.file, download: '' %></td>
+        <td><%= link_to "View File", medical_record.file if medical_record.file.attached? %></td>
+        <td><%= link_to "Download File", medical_record.file, download: '' if medical_record.file.attached? %></td>
       </tr>
     <% end %>
   </tbody>

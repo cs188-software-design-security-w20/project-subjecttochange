@@ -4,21 +4,36 @@ class MedicalRecordsController < ApplicationController
     # GET /medical_records
     # GET /medical_records.json
     def index
+      @medical_record = MedicalRecord.new
       @medical_records = MedicalRecord.all
     end
   
     # GET /medical_records/1
     # GET /medical_records/1.json
     def show
+      @medical_record = MedicalRecord.new
     end
   
     # GET /medical_records/new
     def new
       @medical_record = MedicalRecord.new
+
+      @medical_record.practice_email = params[:prac]
+      
+      @practices = Practice.all
+      @doctor_choices = {
+        "Select a practice" => ""
+      }
+
+      @practices.each do |practice|
+        @doctor_choices.store(practice.first_name + " " + practice.last_name, practice.email)
+      end
+
     end
   
     # GET /medical_records/1/edit
     def edit
+      @medical_record = MedicalRecord.new
     end
   
     # POST /medical_records
@@ -26,11 +41,15 @@ class MedicalRecordsController < ApplicationController
     def create
       @medical_record = MedicalRecord.new(medical_record_params)
 
+      puts "test 1"
+
       current_patient.medical_records << @medical_record
+
+      @medical_record.patient_email = current_patient.email
   
       respond_to do |format|
         if @medical_record.save
-          format.html { redirect_to medical_records_path, notice: 'MedicalRecord was successfully created.' }
+          format.html { redirect_to medical_records_path, notice: 'Medical Record was successfully created.' }
           format.json { render :show, status: :created, location: @medical_record }
         else
           format.html { render :new }
@@ -44,7 +63,7 @@ class MedicalRecordsController < ApplicationController
     def update
       respond_to do |format|
         if @medical_record.update(medical_record_params)
-          format.html { redirect_to @medical_record, notice: 'MedicalRecord was successfully updated.' }
+          format.html { redirect_to @medical_record, notice: 'Medical Record was successfully updated.' }
           format.json { render :show, status: :ok, location: @medical_record }
         else
           format.html { render :edit }
@@ -58,7 +77,7 @@ class MedicalRecordsController < ApplicationController
     def destroy
       @medical_record.destroy
       respond_to do |format|
-        format.html { redirect_to medical_records_url, notice: 'MedicalRecord was successfully destroyed.' }
+        format.html { redirect_to medical_records_url, notice: 'Medical Record was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
@@ -71,7 +90,7 @@ class MedicalRecordsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def medical_record_params
-        params.require(:medical_record).permit(:title, :file)
+        params.require(:medical_record).permit(:title, :file, :patient_email, :practice_email)
       end
   end
   

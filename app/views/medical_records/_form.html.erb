@@ -1,6 +1,15 @@
 <br>
 
-<%= form_with(model: medical_record, local: true) do |form| %>
+<% if false %>
+<div class="field">
+  <%= form_with(model: medical_record, url: "/medical_records", method: "get") do |f|  %>
+    <%= label_tag(:q, "Select the corresponding medical practice for this medical record:") %>
+    <%= f.select :practice_email, options_for_select(@doctor_choices, :selected => params[:practice_email]), {}, { :class => 'form-control mb-2'}%>
+  <% end %>
+</div>
+<% end %>
+
+<%= form_with(model: medical_record, url: {action: "create"}, local: true) do |form| %>
   <% if medical_record.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(medical_record.errors.count, "error") %> prohibited this medical_record from being saved:</h2>
@@ -12,6 +21,11 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="field">
+    <%= label_tag(:q, "Select the corresponding medical practice for this medical record:") %>
+    <%= form.select :practice_email, options_for_select(@doctor_choices, :selected => params[:practice_email]), {}, { :class => 'form-control mb-2'}%>
+  </div>
 
   <div class="field">
     <%= form.label :title %>
