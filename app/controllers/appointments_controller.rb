@@ -3,7 +3,7 @@ class AppointmentsController < ApplicationController
 
 
   def create
-    # get appointment params
+    # get appointments params
     # the duration param is actually the time slot
     # get time slot , then set the rest of the parameters that were not passed in
 	  @appointment = Appointment.new(appointment_params)
@@ -13,7 +13,7 @@ class AppointmentsController < ApplicationController
     @appointment.practice_email = $prac
 
 
-    # reset the datetime to account for hour of appointment
+    # reset the datetime to account for hour of appointments
     # set end time to be one hour after the start time
     date = @appointment.appt_start
     @appointment.appt_start = (date.to_time + duration.hours).to_datetime
@@ -25,14 +25,14 @@ class AppointmentsController < ApplicationController
     appt_endtime = (appointment.appt_start.to_time + 1.hours).to_datetime
     if @appointment != appointment
       if appointment.appt_start <= @appointment.appt_start && @appointment.appt_start < appt_endtime|| @appointment.appt_start <= appointment.appt_start && appointment.appt_start < end_time
-        flash[:failure] = "Appointment time slot already full, appointment not created"
+        flash[:failure] = "Appointment time slot already full, appointments not created"
         redirect_to '/calendar'
         return
       end
      end
     end
 
-    # Try saving appointment, if it is saved notify a success, otherwise a failure
+    # Try saving appointments, if it is saved notify a success, otherwise a failure
     if @appointment.save  
       flash[:success] = "Appointment created!"
       redirect_to '/calendar'

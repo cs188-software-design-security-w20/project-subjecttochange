@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'static_pages#dashboard'
   get '/calendar', to: 'patients#calendar'
   get '/practicecalendar', to: 'practices#calendar'
-  get '/appointment', to: 'patients#appointment'
+  get '/appointments', to: 'patients#appointments'
   get '/patient_profile', to: 'patients#profile', as: 'patient_profile'
   get '/practice_profile', to: 'practices#profile', as: 'practice_profile'
 
@@ -37,4 +37,5 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   resources :appointments,  only: [:create, :destroy]
+  resources :notifications, only: [:index]
 end
