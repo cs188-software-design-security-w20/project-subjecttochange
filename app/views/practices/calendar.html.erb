@@ -1,11 +1,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="layout">
-    <div class="cal-practice">
+  <div class="header"> Viewing your calendar </div>
+
+  <div class="cal-container">
+    <div class="app-section">
+
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "flash #{key}" %>
+    <% end %>
+    <%= @appointment.errors.full_messages.first if @appointment.errors.any? %>
+      <aside class="">
+        <section>
+          <%= render :partial => 'practices/shared/appointment', :formats => [:html] %>
+        </section>
+      </aside>
+    </div>
+
+    <div class="cal-section">
       <%= week_calendar events: @appointments do |date, appointments| %>
 
         <% appointments.each do |appointment| %>
-          <div class="appointment<%= highlight_appointment(appointment)%> patient-app">
-            <%= appointment_text_practice(appointment) %>
+          <div class="appointment<%= highlight_appointment(appointment)%> patient-app" style="">
+            <%= (appointment_text_practice(appointment)) %>
           </div>
         <% end %>
       <% end %>
