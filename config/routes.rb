@@ -15,11 +15,11 @@ Rails.application.routes.draw do
   get 'static_pages/about'
   get 'static_pages/home'
   get 'static_pages/dashboard'
-  get 'static_pages/newappointment'
 
   get '/about', to: 'static_pages#about'
   get '/dashboard', to: 'static_pages#dashboard'
   get '/calendar', to: 'patients#calendar'
+  get '/practicecalendar', to: 'practices#calendar'
   get '/appointment', to: 'patients#appointment'
   get '/patient_profile', to: 'patients#profile', as: 'patient_profile'
   get '/practice_profile', to: 'practices#profile', as: 'practice_profile'
@@ -36,4 +36,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'static_pages#home'
 
+  resources :appointments,  only: [:create, :destroy]
 end

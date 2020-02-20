@@ -13,52 +13,25 @@ class PatientsController < ApplicationController
   end
 
   def calendar
-    d = Date.today
-    @date= d.at_beginning_of_week
-    dstart = d.at_beginning_of_week.strftime("%d")
-    mstart = d.at_beginning_of_week.strftime("%B")
-    dend = d.at_end_of_week.strftime("%d")
+    @appointments = Appointment.where(patient_email: current_patient.email).or(Appointment.where(practice_email: params[:prac]))
+    @practices = Practice.all
+    @doctor_choices = {
+      "Select a practice" => ""
+    }
 
-    mend = d.at_end_of_week.strftime("%B")
-    if mstart != mend
-        @label = "Week of " + mstart.to_s + " " + dstart.to_s + " - " + mend.to_s + " " + dend.to_s
+    @practices.each do |practice|
+      @doctor_choices.store(practice.first_name + " " + practice.last_name, practice.email)
+    end
+    if (params.has_key?(:prac))
+       $prac = params[:prac]
+       @prac = @doctor_choices.key($prac)
     else
-        @label = "Week of " + mstart.to_s + " " + dstart.to_s + " - "  + dend.to_s
+      $prac = @doctor_choices.values[0]
+      @prac = nil
     end
-    week = d.all_week
-    week = week.step(1).to_a
-    @mon = week[0].strftime("%d")
-    @tues = week[1].strftime("%d")
-    @wed = week[2].strftime("%d")
-    @thur = week[3].strftime("%d")
-    @fri = week[4].strftime("%d")
-    @sat = week[5].strftime("%d")
-    @sun = week[6].strftime("%d")
 
-    @activeMon = ""
-    @activeTue = ""
-    @activeWed = ""
-    @activeThur = ""
-    @activeFri = ""
-    @activeSat = ""
-    @activeSun = ""
+    @appointment = current_patient.appointments.build
 
-
-    if week[0] == d
-        @activeMon = "active"
-    elsif week[1] == d
-        @activeTue = "active"
-    elsif week[2] == d
-        @activeWed = "active"
-    elsif week[3] == d
-        @activeThur = "active"
-    elsif week[4] == d
-        @activeFri = "active"
-    elsif week[5] == d
-        @activeSat = "active"
-    elsif week[6] == d
-        @activeSun = "active"
-    end
   end
 
 

@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="field">
+  <%= form_with(url: "/calendar", method: "get") do |f|  %>
+    <%= label_tag(:q, "Select which practice you would like to view:") %>
+    <%= f.select :prac, options_for_select(@doctor_choices), {}, { :class => 'form-control mb-2', :onChange=>'this.form.submit()'}%>
+  <% end %>
+  </div>
+</div>
