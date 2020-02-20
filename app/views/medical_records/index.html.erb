@@ -7,15 +7,21 @@
 
 <h1>Medical Records</h1>
 
-<%= link_to 'New Medical Record', new_medical_record_path %>
+<%= link_to "New Medical Record", new_medical_record_path %>
+
+<% if false %>
+<%= button_to("New Medical Record", new_medical_record_path, :method => :get, :form_class => "new_med_button") %>
+<% end %>
 
 <table class="medical_records">
   <thead>
     <tr>
       <th>Title</th>
+      <th>Practice</th>
+      <th>Date Created</th>
       <th>View</th>
       <th>Download</th>
-      <th>Date Created</th>
+      
     </tr>
   </thead>
 
@@ -23,9 +29,10 @@
     <% current_patient.medical_records.each do |medical_record| %>
       <tr>
         <td><%= medical_record.title %></td>
+        <td><%= "Practice" %></td>
+        <td><%= medical_record.created_at %></td>
         <td><%= link_to "View File", medical_record.file %></td>
         <td><%= link_to "Download File", medical_record.file, download: '' %></td>
-        <td><%= medical_record.created_at %></td>
       </tr>
     <% end %>
   </tbody>
