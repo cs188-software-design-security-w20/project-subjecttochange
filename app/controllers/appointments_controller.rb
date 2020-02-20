@@ -39,6 +39,12 @@ class AppointmentsController < ApplicationController
       # Try saving appointment, if it is saved notify a success, otherwise a failure
       if @appointment.save
         flash[:success] = "Appointment created!"
+        # Create a new message after the appointment has been created!
+
+        title = "New Appointment with " + $prac
+        body = "You successfully created an appointment with " + $prac + " on " + @appointment.appt_start.strftime("%m/%d/%Y") + " at " + @appointment.appt_start.strftime("%l:%M %p")+ "."
+
+        message = Message.find_or_create_by(to_email: current_patient.email, from_email: $prac, message_title: title, message_body: body, created_at: Time.now, updated_at: Time.now);
         redirect_to '/calendar'
       else
         flash[:failure] = "Appointment not created"

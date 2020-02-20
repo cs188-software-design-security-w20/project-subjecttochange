@@ -34,5 +34,8 @@ class PatientsController < ApplicationController
 
   end
 
+  def messages
+    @messages = Message.all
+  end
 
 end

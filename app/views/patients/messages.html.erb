@@ -1,0 +1,14 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="layout">
+
+      <div class="header"> Your messages</div>
+
+
+  <div class="message-container">
+    <% @messages.each do |message| %>
+      <div class="message">
+        <%= (message_text(message)) %>
+     </div>
+   <% end %>
+  </div>
+</div>

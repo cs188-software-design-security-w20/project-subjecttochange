@@ -49,4 +49,8 @@ module AppointmentsCalendarHelper
     end
   end
 
+  def message_text(message)
+    "<span class='name'> TO: #{message.to_email} FROM: #{message.from_email} <br> #{message.message_title} <br> #{message.message_body}</span>".html_safe
+  end
+
 end
