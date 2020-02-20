@@ -1,0 +1,17 @@
+
+<div class="container">
+  <%=  form_for(@appointment) do |f| %>
+    <div class="field">
+      <%= f.date_field :appt_start, :required => true, autofocus: true, class: 'form-control mb-2', placeholder: 'Appointment time' %>
+    </div>
+    <div class="field">
+      <%= f.select :duration, options_for_select(["Select time", "8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM"],:disabled => ["Select time"]), {}, {:class => 'form-control mb-2'} %>
+    </div>
+    <div class="field">
+      <%= f.text_field :description, class: 'form-control mb-2', placeholder: 'Description' %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Create Appointment", class:'col btn btn-info btn-round btn-lg text-center mt-4' %>
+    </div>
+    <% end %>
+</div>

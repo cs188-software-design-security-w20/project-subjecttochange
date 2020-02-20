@@ -16,12 +16,13 @@ Rails.application.routes.draw do
 
   get 'static_pages/about'
   get 'static_pages/home'
-  get 'static_pages/newappointment'
   get '/about', to: 'static_pages#about'
   get '/calendar', to: 'patients#calendar'
+  get '/practicecalendar', to: 'practices#calendar'
   get '/appointment', to: 'patients#appointment'
-  get '/profile', to: 'patients#see_profile', as: 'profile'
   get '/medical_record', to: 'medical_records#index'
+  get '/patient_profile', to: 'patients#profile', as: 'patient_profile'
+  get '/practice_profile', to: 'practices#profile', as: 'practice_profile'
 
   authenticated :patient do
     root :to => 'patients#show', :as => 'authenticated_patient_root'
@@ -35,4 +36,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'static_pages#home'
 
+  resources :appointments,  only: [:create, :destroy]
 end

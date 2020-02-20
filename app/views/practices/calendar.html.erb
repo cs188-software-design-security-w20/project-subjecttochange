@@ -1,0 +1,14 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="layout">
+    <div class="cal-practice">
+      <%= week_calendar events: @appointments do |date, appointments| %>
+
+        <% appointments.each do |appointment| %>
+          <div class="appointment<%= highlight_appointment(appointment)%> patient-app">
+            <%= appointment_text_practice(appointment) %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

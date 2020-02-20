@@ -11,12 +11,12 @@
           <% if patient_signed_in? %>
             <!-- previously was "patient_session_path" -->
             <!-- https://bytes.babbel.com/en/articles/2014-07-28-external-url-building.html -->
-            <%= link_to current_patient.first_name + '\'s Profile', profile_path, {:class=>'nav-link font-weight-bold'} %>
+            <%= link_to current_patient.first_name + '\'s Profile', patient_profile_path, {:class=>'nav-link font-weight-bold'} %>
             <%= link_to destroy_patient_session_path, method: :delete, class:"btn btn-default btn-sm" do %>
               Log out
             <% end %>
           <% elsif practice_signed_in?%>
-            <%= link_to current_practice.first_name + '\'s Profile', practice_session_path, {:class=>'nav-link font-weight-bold'} %>
+            <%= link_to current_practice.first_name + '\'s Profile', practice_profile_path, {:class=>'nav-link font-weight-bold'} %>
             <%= link_to 'Log out', destroy_practice_session_path, method: :delete, class:"btn btn-default btn-sm" %>
           <% else %>
               <%= link_to "Patient Login", new_patient_session_path, {:class=>'nav-link font-weight-bold'} %>

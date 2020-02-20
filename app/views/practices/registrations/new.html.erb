@@ -55,6 +55,9 @@
                 <%= f.text_field :phone_number, :required => true, autocomplete: "tel", class: 'form-control mb-2', placeholder: 'Phone Number' %>
               </div>
               <div class="field">
+                <%= f.text_field :street_address, :required => true, autocomplete: "address", class: 'form-control mb-2', placeholder: 'Address' %>
+              </div>
+              <div class="field">
                 <%= f.text_field :city, :required => true, autocomplete: "city", class: 'form-control mb-2', placeholder: 'City'  %>
               </div>
               <div class="field">

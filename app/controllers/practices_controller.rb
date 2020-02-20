@@ -9,4 +9,12 @@ class PracticesController < ApplicationController
 
   def new
   end
+
+  def profile
+  end
+
+  def calendar
+   @appointments = Appointment.where(practice_email: current_practice.email)
+  end
+
 end

@@ -1,0 +1,32 @@
+<div class="section-signup mt-0">
+  <div class="container mb-5 ">
+    <%= render 'layouts/alert' %>
+    <h3 class="font-weight-bold mb-0 pb-0">Your Profile:</h3>
+    <%= link_to 'Edit Your Profile', edit_patient_registration_path, {:class=>'nav-link font-weight-bold'} %>
+
+    <div class="text-secondary mt-3">
+
+      <b>Full Name: </b><%= fullname(current_patient)%>
+      <br />
+      <b>Email: </b><%= current_patient.email %>
+      <br />
+      <b>Gender: </b><%= gender(current_patient) %>
+      <br />
+      <b>Birthdate: </b><%= Date.strptime(current_patient.birthdate).to_formatted_s(:long) %>
+      <br />
+      <b>Phone Number: </b><%= number_to_phone(current_patient.phone_number, area_code: true) %>
+      <br />
+      <br />
+      <b>Full Address: </b>
+      <br />
+      <%= current_patient.street_address %>
+      <br />
+      <%= fullAddress(current_patient)%>
+      <br />
+      <br />
+
+      <b>Medical Records: </b>
+
+    </div>
+  </div>
+</div>

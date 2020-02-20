@@ -5,7 +5,33 @@
 .layout {
     width: 100%;
     height: 100%;
-    padding: 5% 10% 0 10%;
+    padding: 5% 5% 0 5%;
+}
+
+.appointment {
+  line-height: 20px;
+  margin-bottom: 10px;
+  border-style: solid;
+  border-width: 1px;
+  width:100%;
+  white-space: pre-line;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+
+.patient-app {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.other-app {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dropdown {
+  padding: 10% 0;
 }
 
 .oneline {
@@ -15,6 +41,28 @@
 
 .inner {
     display: inline-block;
+}
+.cal-container {
+	list-style: none;
+	display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.cal-section {
+	width:70%;
+}
+
+.cal-practice {
+  width:100%;
+}
+
+.app-section{
+	width:30%;
+	padding: 10% 0 0 0;
 }
 
 .header {
