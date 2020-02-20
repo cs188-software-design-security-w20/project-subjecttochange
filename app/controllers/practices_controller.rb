@@ -14,7 +14,8 @@ class PracticesController < ApplicationController
   end
 
   def calendar
-   @appointments = Appointment.where(practice_email: current_practice.email)
+    @appointments = Appointment.where(practice_email: current_practice.email)
+    @appointment = current_practice.appointments.build
   end
 
 end
