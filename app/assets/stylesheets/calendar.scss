@@ -22,6 +22,26 @@
 }
 
 
+.flash {
+  color: #ffffff;
+  position: relative;
+  padding: 0.9rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 0.0625rem solid transparent;
+  border-radius: 0.2857rem;
+  width: 90%;
+  margin: 5%;
+}
+
+.failure {
+  background: #fd77a4;
+}
+
+.success {
+  background: #00bf9a;
+}
+
+
 .patient-app {
   background-color: rgba(225, 86, 202, 0.61);
 }
