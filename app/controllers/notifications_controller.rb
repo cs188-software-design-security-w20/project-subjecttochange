@@ -1,8 +1,16 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_patient!
   before_action :set_notifications
+  skip_before_action :verify_authenticity_token
 
   def index
+    @notifications = Notification.where(recipient_id: current_patient.id).unread
+  end
+
+  def mark_as_read
+    @notifications = Notification.where(recipient_id: current_patient.id).unread
+    @notifications.update_all(read_at: Time.zone.now)
+    render json: {success: true}
   end
 
   def create
@@ -12,11 +20,7 @@ class NotificationsController < ApplicationController
   private
 
   def set_notifications
-    puts("[NotificationsController] My current patient is #{current_patient}")
-    puts("[NotificationsController] My current patient's email is #{current_patient.email}")
     @notifications = Notification.where(recipient_id: current_patient.id).unread
-    puts("[NotificationsController] I have notifications of #{@notifications}")
-    puts("[NotificationsController] First notification is #{@notifications[0]}")
   end
 
 end

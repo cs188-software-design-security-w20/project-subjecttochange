@@ -37,5 +37,10 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   resources :appointments,  only: [:create, :destroy]
-  resources :notifications, only: [:index]
+  #resources :notifications, only: [:index]
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
 end
