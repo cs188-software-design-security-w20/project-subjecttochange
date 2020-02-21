@@ -15,18 +15,30 @@ class MedicalRecordsController < ApplicationController
   
     # GET /medical_records/new
     def new
-
       @medical_record = MedicalRecord.new
 
-      @medical_record.practice_email = params[:prac]
-      
-      @practices = Practice.all
-      @doctor_choices = {
-        "Select a practice" => ""
-      }
+      if (current_patient)
+        @medical_record.practice_email = params[:practice_email]
+        
+        @practices = Practice.all
+        @doctor_choices = {
+          "Select a practice" => ""
+        }
 
-      @practices.each do |practice|
-        @doctor_choices.store(practice.first_name + " " + practice.last_name, practice.email)
+        @practices.each do |practice|
+          @doctor_choices.store(practice.first_name + " " + practice.last_name, practice.email)
+        end
+      elsif (current_practice)
+        @medical_record.patient_email = params[:patient_email]
+
+        @patients = Patient.all
+        @patient_choices = {
+          "Select a patient" => ""
+        }
+
+        @patients.each do |patient|
+          @patient_choices.store(patient.first_name + " " + patient.last_name, patient.email)
+        end
       end
 
       render proper_new_by_user

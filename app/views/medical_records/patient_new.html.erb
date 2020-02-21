@@ -21,7 +21,7 @@
   <% end %>
 
   <div class="field">
-    <%= label_tag(:q, "Select the corresponding medical practice for this medical record:") %>
+    <%= label_tag(:q, "Select the corresponding patient for this medical record:") %>
     <%= form.select :practice_email, options_for_select(@doctor_choices, :selected => params[:practice_email]), {}, { :class => 'form-control mb-2'}%>
   </div>
 
