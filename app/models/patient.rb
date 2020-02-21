@@ -9,4 +9,6 @@ class Patient < ApplicationRecord
   validates :email, uniqueness: true
 
   has_many :medical_records
+  has_many :notifications, foreign_key: :recipient_id
+
 end
