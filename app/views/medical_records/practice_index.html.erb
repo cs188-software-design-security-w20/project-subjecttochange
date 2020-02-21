@@ -1,17 +1,10 @@
 <br>
-<br>
-<br>
-<br>
 
-<p id="notice"><%= notice %></p>
+<div class="header">Medical Records</div>
 
-<h1>Medical Records</h1>
-
-<%= link_to "New Medical Record", new_medical_record_path %>
-
-<% if false %>
-<%= button_to("New Medical Record", new_medical_record_path, :method => :get, :form_class => "new_med_button") %>
-<% end %>
+<div class="new_med_rec_btn">
+<%= link_to "New Medical Record", new_medical_record_path, class:'col btn btn-info btn-round btn-sm text-center mt-4' %>
+</div>
 
 <table class="medical_records">
   <thead>
