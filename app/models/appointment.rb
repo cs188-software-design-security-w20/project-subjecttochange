@@ -15,12 +15,12 @@ class Appointment < ApplicationRecord
 
 
   after_initialize do |appointment|
-    puts("[Appointment.after_initialize] Patient email is #{patient_email}")
-    puts("[Appointment.after_initialize] Practice email is #{practice_email}")
-    @patient = Patient.find_by email: patient_email
-    puts("[Appointment.after_initialize] Patient is #{@patient}")
-    @practice = Practice.find_by email: practice_email
-    puts("[Appointment.after_initialize] Practice is #{@practice}")
+    #puts("[Appointment.after_initialize] Patient email is #{patient_email}")
+    #puts("[Appointment.after_initialize] Practice email is #{practice_email}")
+    #@patient = Patient.find_by email: patient_email
+    #puts("[Appointment.after_initialize] Patient is #{@patient}")
+    #@practice = Practice.find_by email: practice_email
+    #puts("[Appointment.after_initialize] Practice is #{@practice}")
   end
 
   def appointment_date_cannot_be_in_the_past
@@ -41,21 +41,33 @@ class Appointment < ApplicationRecord
 
   private
 
-  def recipients
-    patients = []
-    return patients.push(@patient)
-  end
+  #def recipients
+  #  patients = []
+  #  return patients.push(@patient)
+  #end
 
   def create_notifications
     puts("create_notifications test1")
-    recipients.each do |recipient|
-      puts("[Appointment.create_notifications] Recipient is #{recipient}")
-      puts("[Appointment.create_notifications] Actor is #{@practice}")
-      n1 = Notification.create(recipient: recipient.id, actor: @practice.id,
-                          action: 'appointments set', notifiable: self)
-      puts(n1)
-      puts(n1.class)
-    end
+
+    @patient = Patient.find_by email: patient_email
+    @practice = Practice.find_by email: practice_email
+
+    puts("[Appointment.create_notifications] Recipient is #{@patient}")
+    puts("[Appointment.create_notifications] Actor is #{@practice}")
+
+    n1 = Notification.create(recipient: @patient, actor: @practice,
+                             action: 'scheduled', notifiable: self)
+    puts("[Appointment.create_notifications] Notification n1 is #{n1}")
+
+    #recipients.each do |recipient|
+    #  puts("[Appointment.create_notifications] Recipient is #{recipient}")
+    #  puts("[Appointment.create_notifications] Actor is #{@practice}")
+    #  n1 = Notification.create(recipient: recipient.id, actor: @practice.id,
+    #                      action: 'appointments set', notifiable: self)
+    #  puts(n1)
+    #  puts(n1.class)
+    #end
+
     puts("create_notifications test2")
   end
 
