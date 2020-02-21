@@ -15,6 +15,7 @@ class MedicalRecordsController < ApplicationController
   
     # GET /medical_records/new
     def new
+
       @medical_record = MedicalRecord.new
 
       @medical_record.practice_email = params[:prac]
@@ -28,6 +29,7 @@ class MedicalRecordsController < ApplicationController
         @doctor_choices.store(practice.first_name + " " + practice.last_name, practice.email)
       end
 
+      render proper_new_by_user
     end
   
     # GET /medical_records/1/edit
@@ -90,6 +92,14 @@ class MedicalRecordsController < ApplicationController
         "patient_index"
       elsif (current_practice)
         "practice_index"
+      end
+    end
+
+    def proper_new_by_user
+      if (current_patient)
+        "patient_new"
+      elsif (current_practice)
+        "practice_new"
       end
     end
       # Use callbacks to share common setup or constraints between actions.

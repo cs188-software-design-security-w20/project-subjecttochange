@@ -1,0 +1,44 @@
+<br>
+<br>
+<br>
+<br>
+
+<h1>New Medical Record</h1>
+
+<br>
+
+<%= form_with(model: @medical_record, url: {action: "create"}, local: true) do |form| %>
+  <% if @medical_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@medical_record.errors.count, "error") %> prohibited this medical_record from being saved:</h2>
+
+      <ul>
+        <% @medical_record.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label_tag(:q, "Select the corresponding medical practice for this medical record:") %>
+    <%= form.select :practice_email, options_for_select(@doctor_choices, :selected => params[:practice_email]), {}, { :class => 'form-control mb-2'}%>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file %>
+    <%= form.file_field :file %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Back', medical_records_path %>
