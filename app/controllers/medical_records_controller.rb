@@ -4,8 +4,7 @@ class MedicalRecordsController < ApplicationController
     # GET /medical_records
     # GET /medical_records.json
     def index
-      @medical_record = MedicalRecord.new
-      @medical_records = MedicalRecord.all
+      render proper_index_by_user
     end
   
     # GET /medical_records/1
@@ -40,12 +39,15 @@ class MedicalRecordsController < ApplicationController
     # POST /medical_records.json
     def create
       @medical_record = MedicalRecord.new(medical_record_params)
-
-      puts "test 1"
+      @practice = Practice.find_by(email: @medical_record.practice_email)
 
       current_patient.medical_records << @medical_record
 
       @medical_record.patient_email = current_patient.email
+      @medical_record.practice_email = @practice.email
+
+      @medical_record.patient_id = current_patient.id
+      @medical_record.practice_id = @practice.id
   
       respond_to do |format|
         if @medical_record.save
@@ -83,6 +85,13 @@ class MedicalRecordsController < ApplicationController
     end
   
     private
+    def proper_index_by_user
+      if (current_patient)
+        "patient_index"
+      elsif (current_practice)
+        "practice_index"
+      end
+    end
       # Use callbacks to share common setup or constraints between actions.
       def set_medical_record
         @medical_record = MedicalRecord.find(params[:id])
