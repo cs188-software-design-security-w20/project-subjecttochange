@@ -7,4 +7,5 @@ class Practice < ApplicationRecord
 
   # validates :first_name, :last_name, :email, :med_school, :phone_number, :city, :state, :zipcode, presence: true
   validates :email, uniqueness: true
+  has_many :medical_records
 end
