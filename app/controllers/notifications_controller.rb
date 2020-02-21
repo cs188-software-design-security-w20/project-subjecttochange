@@ -5,6 +5,10 @@ class NotificationsController < ApplicationController
   def index
   end
 
+  def create
+    puts("[notifications_controller] create() called")
+  end
+
   private
 
   def set_notifications

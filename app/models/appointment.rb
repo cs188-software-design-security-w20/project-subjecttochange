@@ -7,11 +7,21 @@ class Appointment < ApplicationRecord
 
 	validate :appointment_date_cannot_be_in_the_past
 
-  # belongs_to :patient
-  # belongs_to :practice
+   #belongs_to :patient
+   #belongs_to :practice
 
-  # after_create :create_notifications
+   after_create :create_notifications
   # after_create puts("this is my notification!")
+
+
+  after_initialize do |appointment|
+    puts("[Appointment.after_initialize] Patient email is #{patient_email}")
+    puts("[Appointment.after_initialize] Practice email is #{practice_email}")
+    @patient = Patient.find_by email: patient_email
+    puts("[Appointment.after_initialize] Patient is #{@patient}")
+    @practice = Practice.find_by email: practice_email
+    puts("[Appointment.after_initialize] Practice is #{@practice}")
+  end
 
   def appointment_date_cannot_be_in_the_past
     if appt_start.present? && appt_start < Date.today
@@ -32,14 +42,21 @@ class Appointment < ApplicationRecord
   private
 
   def recipients
-    self.patient
+    patients = []
+    return patients.push(@patient)
   end
 
   def create_notifications
+    puts("create_notifications test1")
     recipients.each do |recipient|
-      Notification.create(recipient: recipient, actor: self.practice,
+      puts("[Appointment.create_notifications] Recipient is #{recipient}")
+      puts("[Appointment.create_notifications] Actor is #{@practice}")
+      n1 = Notification.create(recipient: recipient.id, actor: @practice.id,
                           action: 'appointments set', notifiable: self)
+      puts(n1)
+      puts(n1.class)
     end
+    puts("create_notifications test2")
   end
 
 end
