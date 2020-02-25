@@ -21,6 +21,7 @@ table.medical_records {
             tbody{
                   tr{
                         background: lighten(rgb(195, 198, 201), 30%);
+                        color: black;
   
                             &:nth-child(odd){
                                   background: darken(lighten(rgb(195, 198, 201), 30%), 3%);

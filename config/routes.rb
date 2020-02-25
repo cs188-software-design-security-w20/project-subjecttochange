@@ -16,11 +16,15 @@ Rails.application.routes.draw do
 
   get 'static_pages/about'
   get 'static_pages/home'
+  get 'static_pages/dashboard'
+
   get '/about', to: 'static_pages#about'
+  get '/dashboard', to: 'static_pages#dashboard'
   get '/calendar', to: 'patients#calendar'
   get '/practicecalendar', to: 'practices#calendar'
   get '/appointment', to: 'patients#appointment'
   get '/medical_record', to: 'medical_records#index'
+  get '/appointments', to: 'patients#appointments'
   get '/patient_profile', to: 'patients#profile', as: 'patient_profile'
   get '/practice_profile', to: 'practices#profile', as: 'practice_profile'
 
@@ -37,4 +41,10 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   resources :appointments,  only: [:create, :destroy]
+  #resources :notifications, only: [:index]
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
 end
