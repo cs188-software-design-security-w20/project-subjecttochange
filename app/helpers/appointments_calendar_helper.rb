@@ -1,6 +1,7 @@
 module AppointmentsCalendarHelper
 
   def appointment_belongs_to_patient(appointment)
+    # Sets the class of the appointment to be different if the appointment belongs to the aptient
     if (appointment.patient_email == current_patient.email)
       " patient-app"
     else
@@ -9,12 +10,14 @@ module AppointmentsCalendarHelper
   end
 
   def highlight_appointment(appointment)
+    # Shows the appointment only if the date of the appointment is within the week being shown
     if current_page?( appointments_path(appointment))
       " highlight"
     end
   end
 
   def appointment_text(appointment)
+    # Gets the name of the practice to display on the appointment
     practice = Practice.all
     first = ""
     last = ""
@@ -33,6 +36,7 @@ module AppointmentsCalendarHelper
   end
 
   def appointment_text_practice(appointment)
+    # Gets the name of the patient to show to the practice
     practice = Patient.all
     first = ""
     last = ""

@@ -3,28 +3,31 @@ class AppointmentsController < ApplicationController
 
 
   def create
-    # get appointment params
-    # the duration param is actually the time slot
-    # get time slot , then set the rest of the parameters that were not passed in
+    # Create a new appointment
+    # First see if it is a patient or practice signed in to create the appointment
     if (current_patient)
+      # Create a new appointment with the parameters passed in
       @appointment = Appointment.new(appointment_params)
       duration = @appointment.duration
+
+      # Set the patient email, duration, and practice email to the known parameters
       @appointment.patient_email = current_patient.email
       @appointment.duration = 1
-      @appointment.practice_email = $prac
+      pr = Practice.where(id: $prac)
+      @appointment.practice_email = pr.first.email
 
       if (duration < 8)
         duration = duration + 12
       end
 
-      # reset the datetime to account for hour of appointment
-      # set end time to be one hour after the start time
+      # Reset the datetime to account for hour of appointment
+      # Set end time to be one hour after the start time
       date = @appointment.appt_start
       @appointment.appt_start = (date.to_time + duration.hours).to_datetime
       end_time = (@appointment.appt_start.to_time + 1.hours).to_datetime
 
-      # go through all apointments for current patient and the practice and make sure the times do not overlap
-      @appointments = Appointment.where(patient_email: current_patient.email).or(Appointment.where(practice_email: $prac))
+      # Go through all apointments for current patient and the practice and make sure the times do not overlap
+      @appointments = Appointment.where(patient_email: current_patient.email).or(Appointment.where(practice_email: @appointment.practice_email))
       @appointments.each do |appointment|
       appt_endtime = (appointment.appt_start.to_time + 1.hours).to_datetime
       if @appointment != appointment
@@ -45,8 +48,11 @@ class AppointmentsController < ApplicationController
         redirect_to '/calendar'
       end
      elsif (current_practice)
+      # Create a new appointment for the practice
       @appointment = Appointment.new(appointment_params)
       duration = @appointment.duration
+
+      # Set the patient_email, duration, and practice_email to the known paramters
       @appointment.patient_email = "NONE"
       @appointment.duration = 1
       @appointment.practice_email = current_practice.email
@@ -55,14 +61,14 @@ class AppointmentsController < ApplicationController
         duration = duration + 12
       end
 
-      # reset the datetime to account for hour of appointment
-      # set end time to be one hour after the start time
+      # Reset the datetime to account for hour of appointment
+      # Set end time to be one hour after the start time
       date = @appointment.appt_start
       @appointment.appt_start = (date.to_time + duration.hours).to_datetime
       end_time = (@appointment.appt_start.to_time + 1.hours).to_datetime
 
-      # go through all apointments for current patient and the practice and make sure the times do not overlap
-      @appointments = Appointment.where(practice_email: $prac)
+      # Go through all apointments for current patient and the practice and make sure the times do not overlap
+      @appointments = Appointment.where(practice_email: current_practice.email)
       @appointments.each do |appointment|
       appt_endtime = (appointment.appt_start.to_time + 1.hours).to_datetime
       if @appointment != appointment
