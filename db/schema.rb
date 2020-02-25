@@ -62,6 +62,17 @@ ActiveRecord::Schema.define(version: 2020_02_21_151105) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer "recipient_id"
+    t.integer "actor_id"
+    t.datetime "read_at"
+    t.string "action"
+    t.integer "notifiable_id"
+    t.string "notifiable_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "patients", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "first_name"
