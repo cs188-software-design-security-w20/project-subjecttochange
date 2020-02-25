@@ -2,10 +2,7 @@
   <div class="container mb-5 ">
     <%= render 'layouts/alert' %>
     <h3 class="font-weight-bold mb-0 pb-0">Medical Records</h3>
-    <%# <%=link_to "New Medical Record", new_medical_record_path, {:class=>'nav-link font-weight-bold'} %>
-    <% if false %>
-    <%= button_to("New Medical Record", new_medical_record_path, :method => :get, :form_class => "new_med_button") %>
-    <% end %>
+    <%=link_to "New Medical Record", new_medical_record_path, {:class=>'nav-link font-weight-bold'} %>
     <div class="text-secondary mt-3">
 
       <table class="medical_records">
