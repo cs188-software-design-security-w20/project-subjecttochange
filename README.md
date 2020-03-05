@@ -2,11 +2,12 @@
 
 ## Run Instructions:
 
-	Our Application is deployed publicly at:
-		_https://rocky-dawn-05751.herokuapp.com/_
+Our Application is deployed publicly at:
+_https://rocky-dawn-05751.herokuapp.com/_
 
-	*Rails Version:* Rails v6.0.2.1
-	*Ruby Version:* Ruby 2.6.3p62
+*Rails Version:* Rails v6.0.2.1
+
+*Ruby Version:* Ruby 2.6.3p62
 
 	If you are attempting to run it locally on a Unix/Linux machine, follow these steps:
 	1. $ gem install rails -v 6.0.2.1
