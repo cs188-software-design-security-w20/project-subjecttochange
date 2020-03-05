@@ -3,16 +3,13 @@
     <%= render 'layouts/alert' %>
     <h3 class="font-weight-bold mb-0 pb-0">Medical Records</h3>
     <%=link_to "New Medical Record", new_medical_record_path, {:class=>'nav-link font-weight-bold'} %>
-    <% if false %>
-    <%= button_to("New Medical Record", new_medical_record_path, :method => :get, :form_class => "new_med_button") %>
-    <% end %>
     <div class="text-secondary mt-3">
 
       <table class="medical_records">
         <thead>
           <tr>
             <th>Title</th>
-            <th>Patient</th>
+            <th>Practice</th>
             <th>Date Created</th>
             <th>View</th>
             <th>Download</th>
@@ -24,7 +21,7 @@
           <% current_patient.medical_records.each do |medical_record| %>
             <tr>
               <td><%= medical_record.title %></td>
-              <td><%= medical_record.patient_email %></td>
+              <td><%= medical_record.practice_email %></td>
               <td><%= medical_record.created_at %></td>
               <td><%= link_to "View File", medical_record.file if medical_record.file.attached? %></td>
               <td><%= link_to "Download File", medical_record.file, download: '' if medical_record.file.attached? %></td>

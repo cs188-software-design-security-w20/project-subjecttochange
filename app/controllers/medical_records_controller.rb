@@ -53,7 +53,6 @@ class MedicalRecordsController < ApplicationController
     # POST /medical_records.json
     def create
       @medical_record = MedicalRecord.new(medical_record_params)
-
       if (current_patient)
         @practice = Practice.find_by(email: @medical_record.practice_email)
 
@@ -66,7 +65,6 @@ class MedicalRecordsController < ApplicationController
         @medical_record.practice_id = @practice.id
       elsif (current_practice)
         @patient = Patient.find_by(email: @medical_record.patient_email)
-
         current_practice.medical_records << @medical_record
 
         @medical_record.patient_email = @patient.email
