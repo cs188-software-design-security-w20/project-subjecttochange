@@ -3,7 +3,7 @@ Rails.application.configure do
 
   #Devise
     #Default environment for production - Action Mailer
-    config.action_mailer.default_url_options = { host: 'https://rocky-dawn-05751.herokuapp.com/' }
+    #config.action_mailer.default_url_options = { host: 'https://rocky-dawn-05751.herokuapp.com/' }
 
 
   # Code is not reloaded between requests.
@@ -16,7 +16,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = true
+  config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
