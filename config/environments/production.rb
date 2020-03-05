@@ -3,7 +3,7 @@ Rails.application.configure do
 
   #Devise
     #Default environment for production - Action Mailer
-    #config.action_mailer.default_url_options = { host: 'https://rocky-dawn-05751.herokuapp.com/' }
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
 
   # Code is not reloaded between requests.

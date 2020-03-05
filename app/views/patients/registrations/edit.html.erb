@@ -37,16 +37,6 @@
               </div>
 
               <div class="field">
-                <%= f.label :password %> (leave blank to not change) <br />
-                <%= f.password_field :password, autocomplete: "new-password", class: 'form-control mb-2', placeholder: 'Password (' + @minimum_password_length.to_s + ' characters minimum)' %>
-              </div>
-
-              <div class="field">
-                <%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control mb-2', placeholder: 'Password Confirmation' %>
-              </div>
-
-              <div class="field">
                 <%= f.label :gender %>
                 <%= f.text_field :gender, autocomplete: "sex", class: 'form-control mb-2', placeholder: 'Gender', maxlength:'1'  %>
               </div>
