@@ -1,7 +1,24 @@
 # project-subjecttochange
 
+## Run Instructions:
+
+	Our Application is deployed publicly at:
+		_https://rocky-dawn-05751.herokuapp.com/_
+
+	*Rails Version:* Rails v6.0.2.1
+	*Ruby Version:* Ruby 2.6.3p62
+
+	If you are attempting to run it locally on a Unix/Linux machine, follow these steps:
+	1. $ gem install rails -v 6.0.2.1
+	2. $ cd /path-to-application-directory
+	3. $ rails db:migrate //to set up the DB (If necessary, follow command-line prompt)
+	4. $ bundle install //to install dependencies (Again, if necessary. Follow command-line prompt)
+	5. $ rails s //to start the localhost server on port 3000 at http://localhost:3000/
+
+
+
+
 ### Team Members
-Michelle Duan (904744846)
 Lauren Fromm (404751250)
 David Lee (804728489)
 Pierson Marks (304742143)
@@ -45,7 +62,6 @@ Kevin Tolby (104666258)
 
 
 ### Work Division
-	*Michelle:* Patient profiles
 	*Lauren:* Collaborative calendar
 	*David:* Doctor profiles
 	*Pierson:* Authentication/Login, security reviews of features, database schema  
